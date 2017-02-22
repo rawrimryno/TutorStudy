@@ -44,8 +44,12 @@
 
     <!-- Name Testing -->
     <script>
-        $("#username").text(" John Doe");
-        console.log("username loaded");
+        $(document).ready(
+            function(){
+                $("#username").text(" John Doe");
+                console.log("username loaded");
+            };
+        );
     </script>
 
 </body>
