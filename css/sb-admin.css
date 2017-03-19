@@ -230,6 +230,7 @@ ul.alert-dropdown {
     background-color: lightgrey;
     padding: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
+    max-width:500px;
 }
 
 .paragraph{
