@@ -225,3 +225,19 @@ ul.alert-dropdown {
 .panel-yellow > a:hover {
     color: #df8a13;
 }
+
+.login {
+    background-color: lightgrey;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+}
+
+.paragraph{
+    font-size:1.25em;
+    text-indent:3em;
+    line-height:2.5em;
+}
+
+.center{
+    align-content:center;
+}
