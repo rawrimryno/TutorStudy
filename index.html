@@ -169,13 +169,90 @@
                         </p>
                         <h3 class="page-header">What do I need to do?</h3>    
                         <p class="paragraph">
-                            If you're student looking for a tutor, all you need to do is <a href="login.html">login</a>
-                            or <a href="signup.html">sign up</a>! Then, you can search for a tutor and schedule
+                            If you're student looking for a tutor, all you need to do is <a data-toggle="modal" data-target="#loginModal">login</a>
+                            or <a data-toggle="modal" data-target="#registerModal">register</a> as a student! Then, you can search for a tutor and schedule
                             a tutor session within a handful of clicks.
                         </p>   
                     </div>
                 </div>
 
+                <!-- Login Modal -->
+                <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h3>Login</h3>
+                            </div>
+                            <div class="modal-body">
+                            <form id="loginForm" class="login" method="POST">
+                                <div class="form-group">
+                                    <label for="email">Email Address:</label>
+                                    <input type="email" class="form-control" name="email" placeholder="Email" value="">
+                                    <label for="password">Password:</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Password" value="">
+                                    <br>
+                                    <button type="submit" class="btn btn-primary">Login</button> 
+                                </div>
+                            </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /.Login Modal -->
+                <!-- Sign up Modal-->
+                <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModal" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                                <h3>Register</h3>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <input type="radio" name="accountType" value="Student" onClick="changeRegisterForm(this);">Student
+                                    <input type="radio" name="accountType" value="Tutor" onClick="changeRegisterForm(this);">Tutor <br>
+                                </div>
+                                <form id="tutorRegistrationForm" class="login"  style="display:none;" method="POST">
+                                    <div class="form-group">
+                                        <label for="email">Email Address:</label>
+                                        <input type="email" class="form-control" name="email" placeholder="Email" value="">
+                                        <label for="password">Password:</label>
+                                        <input type="password" class="form-control" name="password" placeholder="Password" value="">
+                                        <label for="confirmPassword">Confirm Password:</label>
+                                        <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" value="">
+                                        <select id="majorSelect"></select>
+                                        <br>
+                                        <button type="submit" class="btn btn-primary">Register</button> 
+                                    </div>
+                                </form>
+                                <form id="studentRegistrationForm" class="login" style="display:none;" method="POST">
+                                    <div class="form-group">
+                                        <label for="email">Email Address:</label>
+                                        <input type="email" class="form-control" name="email" placeholder="Email" value="">
+                                        <label for="password">Password:</label>
+                                        <input type="password" class="form-control" name="password" placeholder="Password" value="">
+                                        <label for="confirmPassword">Confirm Password:</label>
+                                        <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" value="">
+                                        <br>
+                                        <button type="submit" class="btn btn-primary">Register</button> 
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./Sign up Modal-->
             </div>
             <!-- /.container-fluid -->
 
@@ -190,6 +267,13 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom js -->
+    <script src="js/TutorStudy.js"></script>
+
+    <!-- Select2 js and css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 
 </body>
 

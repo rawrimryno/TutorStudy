@@ -227,10 +227,9 @@ ul.alert-dropdown {
 }
 
 .login {
-    background-color: lightgrey;
+    background-color: lightgray;
     padding: 5px 5px 5px 5px;
     border-radius: 5px 5px 5px 5px;
-    max-width:500px;
 }
 
 .paragraph{
