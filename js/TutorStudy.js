@@ -11,7 +11,7 @@ By: Ryan Ngo
 function getMajors(){
     $.ajax({
         dataType: "json",
-        url: "./TutorStudyServlet/GetMajors",
+        url: "../TutorStudyServlet/GetMajors",
         success:function(data){
             console.log(JSON.stringify(data));
             return data;
