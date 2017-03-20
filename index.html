@@ -222,19 +222,32 @@
                                 </div>
                                 <form id="tutorRegistrationForm" class="login"  style="display:none;" method="POST">
                                     <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" name="name" placeholder="Name" value="">
                                         <label for="email">Email Address:</label>
                                         <input type="email" class="form-control" name="email" placeholder="Email" value="">
                                         <label for="password">Password:</label>
                                         <input type="password" class="form-control" name="password" placeholder="Password" value="">
                                         <label for="confirmPassword">Confirm Password:</label>
                                         <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" value="">
-                                        <select id="majorSelect" class="js-example-basic-single"></select>
                                         <br>
-                                        <button type="submit" class="btn btn-primary">Register</button> 
+                                        <label for="major">Major:</label>
+                                        <select id="tutorMajorSelect" name="major" class="form-control"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" style="width:300px">
+                                            <option></option>
+                                        </select>
+                                        <br><br>
+                                        <label for="description">Description:</label>
+                                        <textarea rows="" cols="" class="form-control" name="description" placeholder="Write about yourself..." value=""></textarea>
+                                        <label for="rate">fee/hour:</label>
+                                        <input type="number" class="form-control" name="rate" placeholder="" value="" min="1" max="150">
+                                        <br>
+                                        <button type="button" class="btn btn-primary" onClick="registerTutor();">Register</button> 
                                     </div>
                                 </form>
                                 <form id="studentRegistrationForm" class="login" style="display:none;" method="POST">
                                     <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" name="name" placeholder="Name" value="">
                                         <label for="email">Email Address:</label>
                                         <input type="email" class="form-control" name="email" placeholder="Email" value="">
                                         <label for="password">Password:</label>
@@ -242,7 +255,12 @@
                                         <label for="confirmPassword">Confirm Password:</label>
                                         <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" value="">
                                         <br>
-                                        <button type="submit" class="btn btn-primary">Register</button> 
+                                        <label for="major">Major:</label>
+                                        <select id="studentMajorSelect" name="major" class="form-control"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" style="width:300px">
+                                            <option></option>
+                                        </select>
+                                        <br><br>
+                                        <button class="btn btn-primary">Register</button> 
                                     </div>
                                 </form>
                             </div>
