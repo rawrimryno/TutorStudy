@@ -11,7 +11,7 @@ By: Ryan Ngo
 function getMajors(){
     $.ajax({
         dataType: "json",
-        url: "../TutorStudyServlet/GetMajors",
+        url: "http://52.38.218.199/TutorStudyServlet/GetMajors",
         success:function(data){
             $("#majorSelect").select2({
                 data:data
@@ -45,8 +45,7 @@ function changeRegisterForm(type){
         case("Tutor"):
             $("#studentRegistrationForm").hide();
             $("#tutorRegistrationForm").show("slow");
-            var majorData = getMajors();
-            
+            getMajors();
             console.log("tutor form loaded");
             break;
         default:
