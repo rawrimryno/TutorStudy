@@ -79,6 +79,21 @@ function changeRegisterForm(type){
 
 /*Register Functions*/
 function registerTutor(){
-    console.log($("#tutorRegistrationForm").serializeArray());
+    var fields = $("#tutorRegistrationForm").serialize();
+    $.ajax({
+        type: "POST",
+        url: "http://52.38.218.199/TutorStudyServlet/RegisterTutor",
+        data: fields,
+        success: function(data){
+            switch(data){
+                case 1:
+                    console.log("successfully registered");
+                    break;
+                default:
+                    console.log("error registering");
+                    break;
+            }
+        }
+    });
 }
 /* End Register Functions*/

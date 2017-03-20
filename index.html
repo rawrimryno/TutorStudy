@@ -187,7 +187,7 @@
                                 <h3>Login</h3>
                             </div>
                             <div class="modal-body">
-                            <form id="loginForm" class="login" method="POST">
+                            <form id="loginForm" class="login">
                                 <div class="form-group">
                                     <label for="email">Email Address:</label>
                                     <input type="email" class="form-control" name="email" placeholder="Email" value="">
@@ -220,7 +220,7 @@
                                     <input type="radio" name="accountType" value="Student" onClick="changeRegisterForm(this);">Student
                                     <input type="radio" name="accountType" value="Tutor" onClick="changeRegisterForm(this);">Tutor <br>
                                 </div>
-                                <form id="tutorRegistrationForm" class="login"  style="display:none;" method="POST">
+                                <form id="tutorRegistrationForm" class="login"  style="display:none;">
                                     <div class="form-group">
                                         <label for="name">Name:</label>
                                         <input type="text" class="form-control" name="name" placeholder="Name" value="">
@@ -244,7 +244,7 @@
                                         <button type="button" class="btn btn-primary" onClick="registerTutor();">Register</button> 
                                     </div>
                                 </form>
-                                <form id="studentRegistrationForm" class="login" style="display:none;" method="POST">
+                                <form id="studentRegistrationForm" class="login" style="display:none;">
                                     <div class="form-group">
                                         <label for="name">Name:</label>
                                         <input type="text" class="form-control" name="name" placeholder="Name" value="">
