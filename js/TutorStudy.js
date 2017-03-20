@@ -13,8 +13,9 @@ function getMajors(){
         dataType: "json",
         url: "../TutorStudyServlet/GetMajors",
         success:function(data){
-            console.log(JSON.stringify(data));
-            return data;
+            $("#majorSelect").select2({
+                data:data
+            });
         }
     });
     /*$.ajax({
@@ -45,10 +46,7 @@ function changeRegisterForm(type){
             $("#studentRegistrationForm").hide();
             $("#tutorRegistrationForm").show("slow");
             var majorData = getMajors();
-            console.log(majorData);
-            $("#majorSelect").select2({
-
-            });
+            
             console.log("tutor form loaded");
             break;
         default:
