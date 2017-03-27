@@ -10,46 +10,38 @@ By: Ryan Ngo
 /* General Get Functions for data loading */
 function getMajors(){
     //note: needed 2 different methods because select2 does not allow multiple dropdown parents
-    $("#studentMajorSelect").select2({
-        ajax: {
-            url: "http://52.38.218.199/TutorStudyServlet/GetMajors",
-            processResults: function(data){
-                return{
-                    results: $.map(data, function(data){
-                        return{
-                            id: data.id,
-                            text: data.major         
-                        }
-                    })
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "http://52.38.218.199/TutorStudyServlet/GetMajors",
+        success:function(data){
+            $("#studentMajorSelect").select2({
+                data :  $.map(data, function(data){
+                            return{
+                                id: data.id,
+                                text: data.major         
+                            }
+                        }),
+                dropdownParent:$("#registerModal"),
+                createTag: function(){
+                    return null;
                 }
-            }
-        },
-        dropdownParent: $("#studentRegistrationForm"),
-        createTag: function () {
-            // Disable tagging
-            return null;
-        }
-    });
-    $("#tutorMajorSelect").select2({
-        ajax: {
-            url: "http://52.38.218.199/TutorStudyServlet/GetMajors",
-            processResults: function(data){
-                return{
-                    results: $.map(data, function(data){
-                        return{
-                            id: data.id,
-                            text: data.major         
-                        }
-                    })
+                        
+            });
+            $("#tutorMajorSelect").select2({
+                data :  $.map(data, function(data){
+                            return{
+                                id: data.id,
+                                text: data.major         
+                            }
+                        }),
+                dropdownParent:$("#registerModal"),
+                createTag: function(){
+                    return null;
                 }
-            }
-        },
-        dropdownParent: $("#tutorRegistrationForm"),
-        createTag: function () {
-            // Disable tagging
-            return null;
+            });
         }
-    });
+    })
 }
 /* End General Get Functions */
 
@@ -79,8 +71,11 @@ function changeRegisterForm(type){
 
 /*Register Functions*/
 function registerTutor(){
-    var fields = $("#tutorRegistrationForm").serialize();
-    $.ajax({
+    var fields = $("#tutorRegistrationForm").serializeArray();
+    console.log(fields);
+    if (!verifyTutorFields(fields))
+        return;
+    /*$.ajax({
         type: "POST",
         url: "http://52.38.218.199/TutorStudyServlet/RegisterTutor",
         data: fields,
@@ -94,6 +89,34 @@ function registerTutor(){
                     break;
             }
         }
-    });
+    });*/
+}
+
+function verifyTutorFields(fields){
+    for(var i in fields){
+        if(fields[i].value==null || fields[i].value==""){
+            $("#registerInfo").removeClass("alert-success");
+            $("#registerInfo").addClass("alert-danger");
+            $("#alertInfo").text("Please fill in all required information. You are missing your " +fields[i].name+".");
+            $("#registerInfo").show('fast');
+            return false;
+        }
+    }
+    var lsuEmail = new RegExp("[a-z]+[0-9]*@lsu.edu");
+    if (!lsuEmail.test(fields[1].value)){
+        $("#registerInfo").removeClass("alert-success");
+        $("#registerInfo").addClass("alert-danger");
+        $("#alertInfo").text("Please enter in a valid LSU email.");
+        $("#registerInfo").show('fast');
+        return false;
+    }
+    if(fields[2].value!=fields[3].value){
+        $("#registerInfo").removeClass("alert-success");
+        $("#registerInfo").addClass("alert-danger");
+        $("#alertInfo").text("Passwords do not match.");
+        $("#registerInfo").show('fast');
+        return false;
+    }
+    return true;
 }
 /* End Register Functions*/
