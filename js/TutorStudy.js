@@ -72,24 +72,16 @@ function changeRegisterForm(type){
 /*Register Functions*/
 function registerTutor(){
     var fields = $("#tutorRegistrationForm").serializeArray();
-    console.log(fields);
     if (!verifyTutorFields(fields))
         return;
-    /*$.ajax({
+    fields = $("#tutorRegistrationForm").serialize();
+    $.ajax({
         type: "POST",
         url: "http://52.38.218.199/TutorStudyServlet/RegisterTutor",
         data: fields,
         success: function(data){
-            switch(data){
-                case 1:
-                    console.log("successfully registered");
-                    break;
-                default:
-                    console.log("error registering");
-                    break;
-            }
         }
-    });*/
+    });
 }
 
 function verifyTutorFields(fields){
