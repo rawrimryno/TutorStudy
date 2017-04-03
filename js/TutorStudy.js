@@ -72,7 +72,7 @@ function changeRegisterForm(type){
 /*Register Functions*/
 function registerTutor(){
     var fields = $("#tutorRegistrationForm").serializeArray();
-    if (!verifyTutorFields(fields))
+    if (!verifyFields(fields))
         return;
     fields = $("#tutorRegistrationForm").serialize();
     $.ajax({
@@ -80,11 +80,35 @@ function registerTutor(){
         url: "http://52.38.218.199/TutorStudyServlet/RegisterTutor",
         data: fields,
         success: function(data){
+            $("#registerInfo").removeClass("alert-danger");
+            $("#registerInfo").removeClass("alert-success");
+            $("#registerInfo").addClass("alert-info");
+            $("#alertInfo").text(data);
+            $("#registerInfo").show('fast');
         }
     });
 }
 
-function verifyTutorFields(fields){
+function registerStudent(){
+    var fields =$("#studentRegistrationForm").serializeArray();
+    if (!verifyFields(fields))
+        return;
+    fields = $("#studentRegistrationForm").serialize();
+    $.ajax({
+        type: "POST",
+        url: "http://52.38.218.199/TutorStudyServlet/RegisterStudent",
+        data: fields,
+        success: function(data){
+            $("#registerInfo").removeClass("alert-danger");
+            $("#registerInfo").removeClass("alert-success");
+            $("#registerInfo").addClass("alert-info");
+            $("#alertInfo").text(data);
+            $("#registerInfo").show('fast');
+        }
+    });
+}
+
+function verifyFields(fields){
     for(var i in fields){
         if(fields[i].value==null || fields[i].value==""){
             $("#registerInfo").removeClass("alert-success");
@@ -111,4 +135,5 @@ function verifyTutorFields(fields){
     }
     return true;
 }
+
 /* End Register Functions*/
