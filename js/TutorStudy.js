@@ -178,7 +178,7 @@ function loadUser(){
         success: function(data){
             console.log("User: "+ data);
             $("#username").text(data);
-            if ($("#username").text() == "Guest"){
+            if (data.localeCompare("Guest")){
                 $("#userOptions").hide();
             }
         }
