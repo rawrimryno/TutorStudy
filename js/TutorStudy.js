@@ -158,6 +158,7 @@ function Login(){
                 $("#alertLoginInfo").text(data);
                 $("#loginInfo").show('fast');
                 loadUser();
+                $("#loginModal").hide();
             }
         });
     }
@@ -176,9 +177,10 @@ function loadUser(){
         type: "GET",
         url: "http://52.38.218.199/TutorStudyServlet/GetUserName",
         success: function(data){
-            console.log("User: "+ data);
-            $("#username").text(data);
-            if (data.substring(0,data.length()) == "Guest"){
+            var result = $.trim(data);
+            console.log("User: "+ result);
+            $("#username").text(result);
+            if (result === "Guest"){
                 $(".userOptions").hide();
             }else{
                 $(".userOptions").show();
