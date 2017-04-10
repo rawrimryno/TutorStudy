@@ -178,7 +178,6 @@ function loadUser(){
         url: "http://52.38.218.199/TutorStudyServlet/GetUserName",
         success: function(data){
             var result = $.trim(data);
-            console.log("User: "+ result);
             $("#username").text(result);
             if (result === "Guest"){
                 $(".userOptions").hide();
