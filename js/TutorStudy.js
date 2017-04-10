@@ -178,10 +178,10 @@ function loadUser(){
         success: function(data){
             console.log("User: "+ data);
             $("#username").text(data);
-            if (data == "Guest"){
-                $("#userOptions").hide();
+            if (data.substring(0,5) == "Guest"){
+                $(".userOptions").hide();
             }else{
-                $("#userOptions").show();
+                $(".userOptions").show();
             }
         }
     });
