@@ -178,7 +178,7 @@ function loadUser(){
         success: function(data){
             console.log("User: "+ data);
             $("#username").text(data);
-            if (data.substring(0,5) == "Guest"){
+            if (data.substring(0,data.length()) == "Guest"){
                 $(".userOptions").hide();
             }else{
                 $(".userOptions").show();
