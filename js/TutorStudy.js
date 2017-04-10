@@ -83,7 +83,7 @@ function registerTutor(){
             $("#registerInfo").removeClass("alert-danger");
             $("#registerInfo").removeClass("alert-success");
             $("#registerInfo").addClass("alert-info");
-            $("#alertInfo").text(data);
+            $("#alertRegisterInfo").text(data);
             $("#registerInfo").show('fast');
         }
     });
@@ -102,7 +102,7 @@ function registerStudent(){
             $("#registerInfo").removeClass("alert-danger");
             $("#registerInfo").removeClass("alert-success");
             $("#registerInfo").addClass("alert-info");
-            $("#alertInfo").text(data);
+            $("#alertRegisterInfo").text(data);
             $("#registerInfo").show('fast');
         }
     });
@@ -113,23 +113,23 @@ function verifyFields(fields){
         if(fields[i].value==null || fields[i].value==""){
             $("#registerInfo").removeClass("alert-success");
             $("#registerInfo").addClass("alert-danger");
-            $("#alertInfo").text("Please fill in all required information. You are missing your " +fields[i].name+".");
+            $("#alertRegisterInfo").text("Please fill in all required information. You are missing your " +fields[i].name+".");
             $("#registerInfo").show('fast');
             return false;
         }
     }
-    var lsuEmail = new RegExp("[a-z]+[0-9]*@lsu.edu");
+    var lsuEmail = new RegExp("[a-z]+[0-9]*@lsu.edu$");
     if (!lsuEmail.test(fields[1].value)){
         $("#registerInfo").removeClass("alert-success");
         $("#registerInfo").addClass("alert-danger");
-        $("#alertInfo").text("Please enter in a valid LSU email.");
+        $("#alertRegisterInfo").text("Please enter in a valid LSU email.");
         $("#registerInfo").show('fast');
         return false;
     }
     if(fields[2].value!=fields[3].value){
         $("#registerInfo").removeClass("alert-success");
         $("#registerInfo").addClass("alert-danger");
-        $("#alertInfo").text("Passwords do not match.");
+        $("#alertRegisterInfo").text("Passwords do not match.");
         $("#registerInfo").show('fast');
         return false;
     }
@@ -137,3 +137,48 @@ function verifyFields(fields){
 }
 
 /* End Register Functions*/
+/* Login Functions */
+function Login(){
+    var lsuEmail = new RegExp("[a-z]+[0-9]*@lsu.edu$");
+    if (!lsuEmail.test($("#loginForm input[name=email]").val())){
+        $("#loginInfo").removeClass("alert-success");
+        $("#loginInfo").addClass("alert-danger");
+        $("#alertLoginInfo").text("Please enter in a valid LSU email.");
+        $("#loginInfo").show('fast');
+    }else{
+        var fields = $("#loginForm").serialize();
+        $.ajax({
+            type: "POST",
+            url: "http://52.38.218.199/TutorStudyServlet/Login",
+            data: fields,
+            success: function(data){
+                $("#loginInfo").removeClass("alert-danger");
+                $("#loginInfo").removeClass("alert-success");
+                $("#loginInfo").addClass("alert-info");
+                $("#alertLoginInfo").text(data);
+                $("#loginInfo").show('fast');
+                loadUser();
+            }
+        });
+    }
+}
+/* End Login Functions */
+
+/* Document Load Functions */
+$(document).ready(function(){
+    loadUser();
+});
+/* End Document Load Functions */
+
+/* Misc User Functions */
+function loadUser(){
+    $.ajax({
+        type: "GET",
+        url: "http://52.38.218.199/TutorStudyServlet/GetUserName",
+        success: function(data){
+            console.log("User: "+ data);
+            $("#username").text(data);
+        }
+    });
+}
+/* End Misc User Functions */
