@@ -180,6 +180,8 @@ function loadUser(){
             $("#username").text(data);
             if (data.localeCompare("Guest")){
                 $("#userOptions").hide();
+            }else{
+                $("#userOptions").show();
             }
         }
     });
