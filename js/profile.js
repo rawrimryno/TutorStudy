@@ -15,9 +15,6 @@ function getUserInfo(){
         url: "http://52.38.218.199/TutorStudyServlet/GetUserInfo",
         success: function(data){
             var result = data;
-            if (result == null || result == ""){
-                window.location.replace("http://52.38.218.199/TutorStudy/");
-            }
             switch(result.UTID){
                 case 2:
                     $("#tutorInfoForm").hide();
@@ -38,6 +35,9 @@ function getUserInfo(){
                 default:
                     break;
             }
+        },
+        error: function(){
+            window.location.replace("http://52.38.218.199/TutorStudy/");
         }
     });
 }
