@@ -5,7 +5,6 @@ This is a custom js for the TutorStudy website.
 By: Ryan Ngo
 
 */
-var name, major, description, fee, UTID;
 
 /* Generic Functions */
 function getUserInfo(){
