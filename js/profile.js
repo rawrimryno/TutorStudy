@@ -15,7 +15,7 @@ function getUserInfo(){
         url: "http://52.38.218.199/TutorStudyServlet/GetUserInfo",
         success: function(data){
             console.log(data);
-            console.log(JSON.parseJSON(data));
+            console.log(jQuery.parseJSON(data));
         }
     });
 }
