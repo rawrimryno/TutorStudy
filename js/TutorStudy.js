@@ -85,6 +85,8 @@ function registerTutor(){
             $("#registerInfo").addClass("alert-info");
             $("#alertRegisterInfo").text(data);
             $("#registerInfo").show('fast');
+            setTimeout(function(){$("#registerInfo").hide('fast');}, 1000);
+            setTimeout(function(){$("#registerModal").modal('toggle');},500);
         }
     });
 }
@@ -104,6 +106,8 @@ function registerStudent(){
             $("#registerInfo").addClass("alert-info");
             $("#alertRegisterInfo").text(data);
             $("#registerInfo").show('fast');
+            setTimeout(function(){$("#registerInfo").hide('fast');}, 1000);
+            setTimeout(function(){$("#registerModal").modal('toggle');},500);
         }
     });
 }
@@ -115,6 +119,7 @@ function verifyFields(fields){
             $("#registerInfo").addClass("alert-danger");
             $("#alertRegisterInfo").text("Please fill in all required information. You are missing your " +fields[i].name+".");
             $("#registerInfo").show('fast');
+            setTimeout(function(){$("#registerInfo").hide('fast');}, 1000);
             return false;
         }
     }
@@ -124,6 +129,7 @@ function verifyFields(fields){
         $("#registerInfo").addClass("alert-danger");
         $("#alertRegisterInfo").text("Please enter in a valid LSU email.");
         $("#registerInfo").show('fast');
+        setTimeout(function(){$("#registerInfo").hide('fast');}, 1000);
         return false;
     }
     if(fields[2].value!=fields[3].value){
@@ -131,6 +137,7 @@ function verifyFields(fields){
         $("#registerInfo").addClass("alert-danger");
         $("#alertRegisterInfo").text("Passwords do not match.");
         $("#registerInfo").show('fast');
+        setTimeout(function(){$("#registerInfo").hide('fast');}, 1000);
         return false;
     }
     return true;
@@ -145,6 +152,7 @@ function Login(){
         $("#loginInfo").addClass("alert-danger");
         $("#alertLoginInfo").text("Please enter in a valid LSU email.");
         $("#loginInfo").show('fast');
+        setTimeout(function(){$("#loginInfo").hide('fast');}, 1000);
     }else{
         var fields = $("#loginForm").serialize();
         $.ajax({

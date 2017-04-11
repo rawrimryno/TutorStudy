@@ -76,6 +76,34 @@ function loadMajors(){
 }
 /* End Generic Functions */
 
+/* Update User Functions */
+function UpdateTutor(){
+    var fields = $("#tutorInfoForm").serializeArray();
+    if (!checkPassword(fields)){
+        return;
+    }
+}
+
+function UpdateStudent(){
+    var fields = $("#studentInfoForm").serializeArray();
+    if (!checkPassword(fields)){
+        return;
+    }
+}
+
+function checkPassword(fields){
+    if(fields[2].value!=fields[3].value){
+        $("#userInfo").removeClass("alert-success");
+        $("#userInfo").addClass("alert-danger");
+        $("#alertUserInfo").text("Passwords do not match.");
+        $("#userInfo").show('fast');
+        setTimeout(function(){$("#userInfo").hide('fast');}, 1000);
+        return false;
+    }
+    return true;
+}
+/* End Update User Functions */
+
 /* Document Ready Functions */
 $(document).ready(function(){
     getUserInfo();
