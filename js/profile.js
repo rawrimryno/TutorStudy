@@ -77,14 +77,14 @@ function loadMajors(){
 /* End Generic Functions */
 
 /* Update User Functions */
-function UpdateTutor(){
+function updateTutor(){
     var fields = $("#tutorInfoForm").serializeArray();
     if (!checkPassword(fields)){
         return;
     }
 }
 
-function UpdateStudent(){
+function updateStudent(){
     var fields = $("#studentInfoForm").serializeArray();
     if (!checkPassword(fields)){
         return;
