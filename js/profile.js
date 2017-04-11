@@ -34,7 +34,7 @@ function getUserInfo(){
                     $("#tutorMajorSelect").trigger('change');
                     break;
                 default:
-                    window.location.replace("./index.html");
+                    window.location.replace("http://52.38.218.199/TutorStudy/");
                     break;
             }
         }
