@@ -79,6 +79,7 @@ function loadMajors(){
 /* Update User Functions */
 function updateTutor(){
     var fields = $("#tutorInfoForm").serializeArray();
+    console.log(fields);
     if (!checkPassword(fields)){
         return;
     }
