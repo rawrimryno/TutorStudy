@@ -20,6 +20,10 @@ function getUserInfo(){
             switch(result.UTID){
                 case 2:
                     $("#tutorInfoForm").hide();
+                    $("#studentInfoForm input[name='name']").val(result.name);
+                    $("#studentInfoForm input[name='email']").val(result.email);
+                    $("#studentInfoForm").val(result.MID);
+                    $("#studentInfoForm").trigger('change');
                     break;
                 case 3:
                     $("#studentInfoForm").hide();
