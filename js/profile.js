@@ -93,6 +93,7 @@ function updateStudent(){
 
 function checkPassword(fields){
     if(fields[2].value!=fields[3].value){
+        console.log(fields[2].value+" : "+fields[3].value);
         $("#userInfo").removeClass("alert-success");
         $("#userInfo").addClass("alert-danger");
         $("#alertUserInfo").text("Passwords do not match.");
