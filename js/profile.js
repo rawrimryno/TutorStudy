@@ -27,7 +27,7 @@ function getUserInfo(){
                     $("#tutorInfoForm input[name='email']").val(result.email);
                     $("#tutorInfoForm textarea[name='description']").val(result.Description);
                     $("#tutorInfoForm input[name='rate']").val(result.Rate);
-                    $("#tutorMajorSelect").selectedIndex = result.MID;
+                    $("#tutorMajorSelect").val(result.MID);
                     break;
                 default:
                     window.location.replace("index.html");
