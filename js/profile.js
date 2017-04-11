@@ -82,6 +82,19 @@ function updateTutor(){
     if (!checkPassword(fields)){
         return;
     }
+    fields = $("#tutorInforForm").serialize();
+    $.ajax({
+        type: "POST",
+        url: "http://52.38.218.199/TutorStudyServlet/UpdateTutor",
+        data: fields,
+        success: function(data){
+            $("#userInfo").removeClass("alert-success");
+            $("#userInfo").addClass("alert-danger");
+            $("#alertUserInfo").text(data);
+            $("#userInfo").show('fast');
+            setTimeout(function(){$("#userInfo").hide('fast');}, 2000);
+        }
+    });
 }
 
 function updateStudent(){
