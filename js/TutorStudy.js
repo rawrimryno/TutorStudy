@@ -107,7 +107,6 @@ function registerStudent(){
             $("#alertRegisterInfo").text(data);
             $("#registerInfo").show('fast');
             setTimeout(function(){$("#registerInfo").hide('fast');}, 2000);
-            setTimeout(function(){$("#registerModal").modal('toggle');},500);
         }
     });
 }
@@ -165,8 +164,10 @@ function Login(){
                 $("#loginInfo").addClass("alert-info");
                 $("#alertLoginInfo").text(data);
                 $("#loginInfo").show('fast');
-                loadUser();
-                setTimeout(function(){$("#loginModal").modal('toggle');},2000);
+                if (data.includes("Success")){
+                    loadUser();
+                    setTimeout(function(){$("#loginModal").modal('toggle');}, 2000);
+                }
             }
         });
     }
