@@ -91,6 +91,7 @@ function updateTutor(){
         data: fields,
         success: function(data){
             $("#userInfo").removeClass("alert-success");
+            $("#userInfo").removeClass("alert-danger");
             $("#userInfo").addClass("alert-info");
             $("#alertUserInfo").text(data);
             $("#userInfo").show('fast');
@@ -112,6 +113,7 @@ function updateStudent(){
         data: fields,
         success: function(data){
             $("#userInfo").removeClass("alert-success");
+            $("#userInfo").removeClass("alert-danger");
             $("#userInfo").addClass("alert-info");
             $("#alertUserInfo").text(data);
             $("#userInfo").show('fast');
