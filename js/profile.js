@@ -103,6 +103,20 @@ function updateStudent(){
     if (!checkPassword(fields)){
         return;
     }
+    fields = $("#studentInfoForm").serialize();
+    console.log(fields);
+    $.ajax({
+        type: "POST",
+        url: "http://52.38.218.199/TutorStudyServlet/UpdateStudent",
+        data: fields,
+        success: function(data){
+            $("#userInfo").removeClass("alert-success");
+            $("#userInfo").addClass("alert-info");
+            $("#alertUserInfo").text(data);
+            $("#userInfo").show('fast');
+            setTimeout(function(){$("#userInfo").hide('fast');}, 2000);
+        }
+    });
 }
 
 function checkPassword(fields){
