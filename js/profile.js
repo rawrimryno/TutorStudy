@@ -83,6 +83,7 @@ function updateTutor(){
         return;
     }
     fields = $("#tutorInfoForm").serialize();
+    console.log(fields);
     $.ajax({
         type: "POST",
         url: "http://52.38.218.199/TutorStudyServlet/UpdateTutor",
