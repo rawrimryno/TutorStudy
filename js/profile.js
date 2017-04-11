@@ -34,7 +34,7 @@ function getUserInfo(){
                     $("#tutorMajorSelect").trigger('change');
                     break;
                 default:
-                    window.location.replace("index.html");
+                    window.location.replace("./index.html");
                     break;
             }
         }
