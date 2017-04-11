@@ -82,8 +82,7 @@ function updateTutor(){
     if (!checkPassword(fields)){
         return;
     }
-    fields = $("#tutorInforForm").serialize();
-    console.log(fields);
+    fields = $("#tutorInfoForm").serialize();
     $.ajax({
         type: "POST",
         url: "http://52.38.218.199/TutorStudyServlet/UpdateTutor",
