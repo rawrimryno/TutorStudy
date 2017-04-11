@@ -14,7 +14,7 @@ function getUserInfo(){
         dataType: "JSON",
         url: "http://52.38.218.199/TutorStudyServlet/GetUserInfo",
         success: function(data){
-            console.log(data);
+            console.log(data[0].UTID);
         }
     });
 }
