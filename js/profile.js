@@ -90,7 +90,7 @@ function updateTutor(){
         data: fields,
         success: function(data){
             $("#userInfo").removeClass("alert-success");
-            $("#userInfo").addClass("alert-infoS");
+            $("#userInfo").addClass("alert-info");
             $("#alertUserInfo").text(data);
             $("#userInfo").show('fast');
             setTimeout(function(){$("#userInfo").hide('fast');}, 2000);
