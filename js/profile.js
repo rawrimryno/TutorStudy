@@ -40,6 +40,7 @@ function getUserInfo(){
 function loadMajors(){
      $.ajax({
         type: "GET",
+        async: "false",
         dataType: "json",
         url: "http://52.38.218.199/TutorStudyServlet/GetMajors",
         success:function(data){
