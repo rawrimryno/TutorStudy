@@ -79,6 +79,7 @@ function loadMajors(){
 /* Update User Functions */
 function updateTutor(){
     var fields = $("#tutorInfoForm").serializeArray();
+    console.log(fields);
     if (!checkPassword(fields)){
         return;
     }
@@ -92,8 +93,8 @@ function updateStudent(){
 }
 
 function checkPassword(fields){
-    if(fields[2].value!=fields[3].value){
-        console.log(fields[2].value+" : "+fields[3].value);
+    if(fields[1].value!=fields[2].value){
+        console.log(fields[1].value+" : "+fields[2].value);
         $("#userInfo").removeClass("alert-success");
         $("#userInfo").addClass("alert-danger");
         $("#alertUserInfo").text("Passwords do not match.");
