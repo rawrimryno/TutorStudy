@@ -79,11 +79,11 @@ function loadMajors(){
 /* Update User Functions */
 function updateTutor(){
     var fields = $("#tutorInfoForm").serializeArray();
-    console.log(fields);
     if (!checkPassword(fields)){
         return;
     }
     fields = $("#tutorInforForm").serialize();
+    console.log(fields);
     $.ajax({
         type: "POST",
         url: "http://52.38.218.199/TutorStudyServlet/UpdateTutor",
