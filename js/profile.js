@@ -9,6 +9,7 @@ var name, major, description, fee, UTID;
 
 /* Generic Functions */
 function getUserInfo(){
+    loadMajors();
     $.ajax({
         type: "GET",
         dataType: "JSON",
@@ -21,6 +22,11 @@ function getUserInfo(){
                     break;
                 case 3:
                     $("#studentInfoForm").hide();
+                    $("#tutorInfoForm input[name='name']").val(result.name);
+                    $("#tutorInfoForm input[name='email']").val(result.email);
+                    $("#tutorInfoForm input[name='description']").val(result.description);
+                    $("#tutorInfoForm input[name='rate']").val(result.rate);
+                    $("#tutorInfoForm input[name='major']").val(result.mid);
                     break;
                 default:
                     window.location.replace("index.html");
@@ -28,6 +34,39 @@ function getUserInfo(){
             }
         }
     });
+}
+
+function loadMajors(){
+     $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "http://52.38.218.199/TutorStudyServlet/GetMajors",
+        success:function(data){
+            $("#studentMajorSelect").select2({
+                data :  $.map(data, function(data){
+                            return{
+                                id: data.id,
+                                text: data.major         
+                            }
+                        }),
+                createTag: function(){
+                    return null;
+                }
+                        
+            });
+            $("#tutorMajorSelect").select2({
+                data :  $.map(data, function(data){
+                            return{
+                                id: data.id,
+                                text: data.major         
+                            }
+                        }),
+                createTag: function(){
+                    return null;
+                }
+            });
+        }
+    })
 }
 /* End Generic Functions */
 
