@@ -158,7 +158,7 @@ function Login(){
                 $("#alertLoginInfo").text(data);
                 $("#loginInfo").show('fast');
                 loadUser();
-                $("#loginModal").modal('toggle');
+                setTimeout(function(){$("#loginModal").modal('toggle');},2000);
             }
         });
     }
