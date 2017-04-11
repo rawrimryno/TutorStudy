@@ -97,7 +97,7 @@ function checkPassword(fields){
         $("#userInfo").addClass("alert-danger");
         $("#alertUserInfo").text("Passwords do not match.");
         $("#userInfo").show('fast');
-        setTimeout(function(){$("#userInfo").hide('fast');}, 1000);
+        setTimeout(function(){$("#userInfo").hide('fast');}, 2000);
         return false;
     }
     return true;
