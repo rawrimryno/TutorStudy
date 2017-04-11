@@ -16,6 +16,7 @@ function getUserInfo(){
         url: "http://52.38.218.199/TutorStudyServlet/GetUserInfo",
         success: function(data){
             var result = data;
+            console.log(result);
             switch(result.UTID){
                 case 2:
                     $("#tutorInfoForm").hide();
