@@ -27,7 +27,9 @@ function getUserInfo(){
                 case 3:
                     console.log(result.classes);
                     var array = new Array();
-                    array = result.classes;
+                    result.classes.forEach(function(element){
+                        array.push(element);
+                    });
                     $("#studentInfoForm").hide();
                     $("#tutorInfoForm input[name='name']").val(result.name);
                     $("#tutorInfoForm input[name='email']").val(result.email);
