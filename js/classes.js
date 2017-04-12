@@ -65,5 +65,6 @@ function loadClasses(){
 /* Document Ready Functions */
 $(document).ready(function(){
     loadMajorAbrv();
+    loadClasses();
 });
 /* End Document Ready Functions */
