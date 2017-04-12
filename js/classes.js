@@ -32,17 +32,14 @@ function loadMajorAbrv(){
 
 function loadClasses(){
     var fields = [];
-    var params = false;
     $("#majorSelect option:selected").each(function(i, selected){
         fields[i] = $(selected).text();
     });
-    if (fields.length > 0)
-        params = true;
     $.ajax({
         type: "GET",
         dataType: "json",
         url: "http://52.38.218.199/TutorStudyServlet/GetClasses",
-        data: {params: params, fields:fields}
+        data: {fields:fields}
     }).done(function (response) {
         response = $.map(response, function(data){
                             return{
