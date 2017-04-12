@@ -25,6 +25,7 @@ function getUserInfo(){
                     $("#studentMajorSelect").trigger('change');
                     break;
                 case 3:
+                    console.log(result);
                     $("#studentInfoForm").hide();
                     $("#tutorInfoForm input[name='name']").val(result.name);
                     $("#tutorInfoForm input[name='email']").val(result.email);
