@@ -48,7 +48,8 @@ function loadClasses(){
                             return{
                                 CID: data.CID,
                                 CNum: data.Abrv +" "+ data.CNum,
-                                CName: data.CName         
+                                CName: data.CName,
+                                Contact: "<button type='button' class='btn btn-primary' onClick='loadTutors("+data.CID+");'>Find Tutors</button>"         
                             };
                         });
         var dynatable = $('#result').dynatable({
@@ -62,6 +63,10 @@ function loadClasses(){
 
         $("#result").show();
     });
+}
+
+function loadTutors(CID){
+    console.log(CID);
 }
 /* End Generic Functions */
 
