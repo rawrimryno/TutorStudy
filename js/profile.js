@@ -84,13 +84,14 @@ function loadClasses(){
         dataType: "json",
         url: "http://52.38.218.199/TutorStudyServlet/GetClasses",
         success:function(data){
-            $("#classSelect").select2({
-                data :  $.map(data, function(data){
+            data = $.map(data, function(data){
                             return{
                                 id: data.CID,
-                                text: data.Abrv+" "+data.CNum         
+                                text: data.Abrv+" "+data.CNum+"-"+data.CName        
                             }
-                        }),
+                        });
+            $("#classSelect").select2({
+                data :  data,
                 createTag: function(){
                     return null;
                 }
