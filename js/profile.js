@@ -26,7 +26,7 @@ function getUserInfo(){
                     break;
                 case 3:
                     console.log(result.classes);
-                    var array = result.classes.split(',');
+                    var array = $(result.classes).split(',');
                     console.log(array);
                     $("#studentInfoForm").hide();
                     $("#tutorInfoForm input[name='name']").val(result.name);
