@@ -28,7 +28,7 @@ function getUserInfo(){
                     console.log(result.classes);
                     var array = new Array();
                     result.classes.forEach(function(element){
-                        array.push(element+"";
+                        array.push(element+"");
                     });
                     console.log(array);
                     $("#studentInfoForm").hide();
