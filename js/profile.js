@@ -9,6 +9,7 @@ By: Ryan Ngo
 /* Generic Functions */
 function getUserInfo(){
     loadMajors();
+    loadClasses();
     $.ajax({
         type: "GET",
         async: "false",
@@ -25,7 +26,6 @@ function getUserInfo(){
                     $("#studentMajorSelect").trigger('change');
                     break;
                 case 3:
-                    loadClasses();
                     $("#classSelect").val(result.classes).trigger('change');
                     $("#studentInfoForm").hide();
                     $("#tutorInfoForm input[name='name']").val(result.name);
