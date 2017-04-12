@@ -9,6 +9,7 @@ By: Ryan Ngo
 /* Generic Functions */
 function getUserInfo(){
     loadMajors();
+    loadClasses();
     $.ajax({
         type: "GET",
         dataType: "JSON",
@@ -31,7 +32,6 @@ function getUserInfo(){
                     $("#tutorInfoForm input[name='rate']").val(result.Rate);
                     $("#tutorMajorSelect").val(result.MID);
                     $("#tutorMajorSelect").trigger('change');
-                    loadClasses();
                     break;
                 default:
                     break;
