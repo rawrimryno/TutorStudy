@@ -25,15 +25,15 @@ function getUserInfo(){
                     $("#studentMajorSelect").trigger('change');
                     break;
                 case 3:
-                    console.log(result);
                     console.log(result.classes);
+                    var array = result.classes;
                     $("#studentInfoForm").hide();
                     $("#tutorInfoForm input[name='name']").val(result.name);
                     $("#tutorInfoForm input[name='email']").val(result.email);
                     $("#tutorInfoForm textarea[name='description']").val(result.Description);
                     $("#tutorInfoForm input[name='rate']").val(result.Rate);
                     $("#tutorMajorSelect").val(result.MID).trigger('change');
-                    $("#classSelect").val(result.classes).trigger('change');
+                    $("#classSelect").val(array).select2();
                     console.log($("#classSelect").val());
                     break;
                 default:
