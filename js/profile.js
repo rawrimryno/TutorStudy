@@ -90,6 +90,7 @@ function loadClasses(){
                                 text: data.Abrv+" "+data.CNum+"-"+data.CName        
                             }
                         });
+            console.log(response);
             $("#classSelect").select2({
                 data :  response,
                 createTag: function(){
