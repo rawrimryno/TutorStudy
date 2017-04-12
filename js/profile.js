@@ -88,8 +88,8 @@ function loadClasses(){
         type: "GET",
         async: "false",
         dataType: "json",
-        url: "http://52.38.218.199/TutorStudyServlet/GetClasses"
-    }).done(function(response){
+        url: "http://52.38.218.199/TutorStudyServlet/GetClasses",
+        success :function(response){
             response = $.map(response, function(data){
                             return{
                                 id: data.CID,
@@ -103,6 +103,7 @@ function loadClasses(){
                 }
                         
             });
+    }
     });
 }
 /* End Generic Functions */
