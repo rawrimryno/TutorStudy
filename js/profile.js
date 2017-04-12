@@ -103,7 +103,7 @@ function loadClasses(){
                 }
                         
             });
-    }
+        }
     });
 }
 /* End Generic Functions */
