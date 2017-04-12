@@ -82,22 +82,21 @@ function loadClasses(){
         type: "GET",
         async: "false",
         dataType: "json",
-        url: "http://52.38.218.199/TutorStudyServlet/GetClasses",
-        success:function(data){
-            data = $.map(data, function(data){
+        url: "http://52.38.218.199/TutorStudyServlet/GetClasses"
+    }).done(function(response){
+            response = $.map(response, function(data){
                             return{
                                 id: data.CID,
                                 text: data.Abrv+" "+data.CNum+"-"+data.CName        
                             }
                         });
             $("#classSelect").select2({
-                data :  data,
+                data :  response,
                 createTag: function(){
                     return null;
                 }
                         
             });
-        }
     });
 }
 /* End Generic Functions */
