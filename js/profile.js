@@ -12,7 +12,7 @@ function getUserInfo(){
     loadClasses();
     $.ajax({
         type: "GET",
-        async: "false",
+        async: false,
         dataType: "JSON",
         url: "http://52.38.218.199/TutorStudyServlet/GetUserInfo",
         success: function(data){
@@ -48,7 +48,7 @@ function getUserInfo(){
 function loadMajors(){
      $.ajax({
         type: "GET",
-        async: "false",
+        async: false,
         dataType: "json",
         url: "http://52.38.218.199/TutorStudyServlet/GetMajors",
         success:function(data){
@@ -82,7 +82,7 @@ function loadMajors(){
 function loadClasses(){
     $.ajax({
         type: "GET",
-        async: "false",
+        async: false,
         dataType: "json",
         url: "http://52.38.218.199/TutorStudyServlet/GetClasses",
         success :function(response){
