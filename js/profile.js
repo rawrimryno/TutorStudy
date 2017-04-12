@@ -116,6 +116,7 @@ function updateTutor(){
     }
     console.log(fields);
     fields = $("#tutorInfoForm").serialize();
+    console.log($("#classSelect").val());
     $.ajax({
         type: "POST",
         url: "http://52.38.218.199/TutorStudyServlet/UpdateTutor",
