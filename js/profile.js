@@ -26,10 +26,7 @@ function getUserInfo(){
                     break;
                 case 3:
                     console.log(result.classes);
-                    var array = new Array();
-                    result.classes.forEach(function(element){
-                        array.push(element+"");
-                    });
+                    var array = result.classes.split(',');
                     console.log(array);
                     $("#studentInfoForm").hide();
                     $("#tutorInfoForm input[name='name']").val(result.name);
@@ -37,7 +34,7 @@ function getUserInfo(){
                     $("#tutorInfoForm textarea[name='description']").val(result.Description);
                     $("#tutorInfoForm input[name='rate']").val(result.Rate);
                     $("#tutorMajorSelect").val(result.MID).trigger('change');
-                    $("#classSelect").val().trigger('change');
+                    $("#classSelect").val(array).trigger('change');
                     console.log($("#classSelect").val());
                     break;
                 default:
