@@ -44,6 +44,13 @@ function loadClasses(){
         url: "http://52.38.218.199/TutorStudyServlet/GetClasses",
         data: {params: params, fields:fields}
     }).done(function (response) {
+        response = $.map(response, function(data){
+                            return{
+                                CID: data.CID,
+                                CNum: data.Abrv +" "+ data.CNum,
+                                CName: data.CName         
+                            };
+                        });
         var dynatable = $('#result').dynatable({
             dataset: {
                 records: response
