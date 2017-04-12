@@ -32,7 +32,6 @@ function getUserInfo(){
                     $("#tutorInfoForm textarea[name='description']").val(result.Description);
                     $("#tutorInfoForm input[name='rate']").val(result.Rate);
                     $("#tutorMajorSelect").val(result.MID).trigger('change');
-                    $("#classSelect").val().trigger('change');
                     console.log($("#classSelect").val());
                     break;
                 default:
