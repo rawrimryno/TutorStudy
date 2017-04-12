@@ -24,7 +24,6 @@ function getUserInfo(){
                     $("#studentMajorSelect").trigger('change');
                     break;
                 case 3:
-                    loadClasses();
                     $("#studentInfoForm").hide();
                     $("#tutorInfoForm input[name='name']").val(result.name);
                     $("#tutorInfoForm input[name='email']").val(result.email);
@@ -32,6 +31,7 @@ function getUserInfo(){
                     $("#tutorInfoForm input[name='rate']").val(result.Rate);
                     $("#tutorMajorSelect").val(result.MID);
                     $("#tutorMajorSelect").trigger('change');
+                    loadClasses();
                     break;
                 default:
                     break;
