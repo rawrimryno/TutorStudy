@@ -11,6 +11,7 @@ function getUserInfo(){
     loadMajors();
     $.ajax({
         type: "GET",
+        asyn: "false",
         dataType: "JSON",
         url: "http://52.38.218.199/TutorStudyServlet/GetUserInfo",
         success: function(data){
@@ -25,11 +26,6 @@ function getUserInfo(){
                     break;
                 case 3:
                     loadClasses();
-                    console.log(result.classes);
-                    var array = new Array();
-                    result.classes.forEach(function(element){
-                        array.push(element+"");
-                    });
                     $("#classSelect").val(result.classes).trigger('change');
                     $("#studentInfoForm").hide();
                     $("#tutorInfoForm input[name='name']").val(result.name);
