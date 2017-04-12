@@ -109,7 +109,7 @@ function updateTutor(){
     }
     console.log(fields);
     fields = $("#tutorInfoForm").serialize();
-    /*$.ajax({
+    $.ajax({
         type: "POST",
         url: "http://52.38.218.199/TutorStudyServlet/UpdateTutor",
         data: fields,
@@ -121,7 +121,7 @@ function updateTutor(){
             $("#userInfo").show('fast');
             setTimeout(function(){$("#userInfo").hide('fast');}, 2000);
         }
-    });*/
+    });
 }
 
 function updateStudent(){
