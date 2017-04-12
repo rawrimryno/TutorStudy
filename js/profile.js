@@ -26,6 +26,7 @@ function getUserInfo(){
                     break;
                 case 3:
                     console.log(result);
+                    console.log(result.classes);
                     $("#studentInfoForm").hide();
                     $("#tutorInfoForm input[name='name']").val(result.name);
                     $("#tutorInfoForm input[name='email']").val(result.email);
