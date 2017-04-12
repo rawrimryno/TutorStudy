@@ -24,6 +24,7 @@ function getUserInfo(){
                     $("#studentMajorSelect").trigger('change');
                     break;
                 case 3:
+                    loadClasses();
                     $("#studentInfoForm").hide();
                     $("#tutorInfoForm input[name='name']").val(result.name);
                     $("#tutorInfoForm input[name='email']").val(result.email);
@@ -75,6 +76,29 @@ function loadMajors(){
         }
     });
 }
+
+function loadClasses(){
+    $.ajax({
+        type: "GET",
+        async: "false",
+        dataType: "json",
+        url: "http://52.38.218.199/TutorStudyServlet/GetClasses",
+        success:function(data){
+            $("#classSelect").select2({
+                data :  $.map(data, function(data){
+                            return{
+                                id: data.CID,
+                                text: data.Abrv+" "+data.CNum         
+                            }
+                        }),
+                createTag: function(){
+                    return null;
+                }
+                        
+            });
+        }
+    });
+}
 /* End Generic Functions */
 
 /* Update User Functions */
@@ -83,8 +107,9 @@ function updateTutor(){
     if (!checkPassword(fields)){
         return;
     }
+    console.log(fields);
     fields = $("#tutorInfoForm").serialize();
-    $.ajax({
+    /*$.ajax({
         type: "POST",
         url: "http://52.38.218.199/TutorStudyServlet/UpdateTutor",
         data: fields,
@@ -96,7 +121,7 @@ function updateTutor(){
             $("#userInfo").show('fast');
             setTimeout(function(){$("#userInfo").hide('fast');}, 2000);
         }
-    });
+    });*/
 }
 
 function updateStudent(){
