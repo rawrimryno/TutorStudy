@@ -26,15 +26,13 @@ function getUserInfo(){
                 case 3:
                     loadClasses();
                     console.log(result.classes);
-                    var array = result.classes;
-                    console.log(array);
                     $("#studentInfoForm").hide();
                     $("#tutorInfoForm input[name='name']").val(result.name);
                     $("#tutorInfoForm input[name='email']").val(result.email);
                     $("#tutorInfoForm textarea[name='description']").val(result.Description);
                     $("#tutorInfoForm input[name='rate']").val(result.Rate);
                     $("#tutorMajorSelect").val(result.MID).trigger('change');
-                    $("#classSelect").val(["1","3"]).trigger('change');
+                    $("#classSelect").val().trigger('change');
                     console.log($("#classSelect").val());
                     break;
                 default:
@@ -111,9 +109,7 @@ function updateTutor(){
     if (!checkPassword(fields)){
         return;
     }
-    console.log(fields);
     fields = $("#tutorInfoForm").serialize();
-    console.log($("#classSelect").val());
     $.ajax({
         type: "POST",
         url: "http://52.38.218.199/TutorStudyServlet/UpdateTutor",
