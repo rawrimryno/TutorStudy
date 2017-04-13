@@ -128,8 +128,6 @@ function loadClasses(){
 
 /* Update User Functions */
 function loadTutor(UID){
-    loadMajors();
-    loadClasses();
     $.ajax({
         type: "GET",
         async: false,
@@ -155,5 +153,7 @@ function loadTutor(UID){
 $(document).ready(function(){
     loadMajorAbrv();
     loadTutors();
+    loadMajors();
+    loadClasses();
 });
 /* End Document Ready Functions */
