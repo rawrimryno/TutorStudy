@@ -1,0 +1,199 @@
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>TutorStudy-Classes</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">TutorStudy</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <b id="username"></b><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class = "userOptions">
+                            <a href="profile.html"><i class="fa fa-fw fa-user"></i> Profile</a>
+                        </li>
+                        <li class = "userOptions">
+                            <a href="#"><i class="fa fa-fw fa-envelope"></i> Sessions</a>
+                        </li>
+                        <li class = "userOptions">
+                            <a href="#"><i class="fa fa-fw fa-gear"></i> Settings</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class = "userOptions">
+                            <a href="#" OnClick="logout()"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="tutors.html"><i class="fa fa-fw fa-apple"></i> Tutors</a>
+                    </li>
+                    <li>
+                        <a href="sessions.html"><i class="fa fa-fw fa-table"></i> Sessions</a>
+                    </li>
+                    <li>
+                        <a href="classes.html"><i class="fa fa-fw fa-edit"></i> Classes</a>
+                    </li>
+                    <!--<li>
+                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
+                    </li>
+                    <li>
+                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo" class="collapse">
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                            <li>
+                                <a href="#">Dropdown Item</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="active">
+                        <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
+                    </li>
+                    <li>
+                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
+                    </li>-->
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                         <h1 class="page-header">Tutors 
+                            <small>Select majors to view available tutors</small>
+                        </h1>              
+                    </div>
+                </div>
+                <div class="row">
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        
+                        <form id="tutorInfoForm" class="login" style="display:none">
+                            <div class="form-group">
+                                <a href="#" class="close" onClick="$('#tutorInfoForm').hide('slow');" aria-label="close">&times;</a>
+                                <label for="name">Name:</label>
+                                <input type="text" class="form-control" name="name" placeholder="Name" value="" disabled>
+                                <label for="email">Email Address:(LSU valid email)</label>
+                                <input type="email" class="form-control" name="email" placeholder="Email" value="" disabled><br>
+                                <label for="major">Major:</label>
+                                <select id="tutorMajorSelect" name="major" class="form-control responsive"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" disabled style="width:100%">
+                                    <option></option>
+                                </select>
+                                <br><br>
+                                <label for="description">Description:</label>
+                                <textarea rows="" cols="" class="form-control" name="description" placeholder="Write about yourself..." value="" disabled></textarea>
+                                <label for="rate">fee/hour:</label>
+                                <input type="number" class="form-control" name="rate" placeholder="" value="" min="1" max="150" disabled>
+                                <br>
+                                <select id="classSelect" name="classes" class="form-control" data-tags="true"  data-allow-clear="true" data-placeholder="Select an option" multiple="multiple" disabled style="width:100%">
+                                </select><br>
+                            </div>
+                        </form>
+                        <form id="classSearch">
+                            <div class="form-group">
+                                <label form="majorSelect">Select a major to view tutors or search a tutor by name</label><br>
+                                <select id="majorSelect" class="form-control" multiple="multiple" onChange="loadTutors();">
+                                </select>
+                            </div>
+                        </form>
+                        <table class="table table-bordered table-hover" id="result" style="display:none">
+                            <thead>
+                                <tr>
+                                    <td data-dynatable-column="TID" style="display:none">CID</td>
+                                    <td data-dynatable-column="Name" >Name</td>
+                                    <td data-dynatable-column="Major">Major</td>
+                                    <td data-dynatable-column="Rate">Fee</td>
+                                    <td data-dynatable-column="AvgRating">Avg. Rating</td>
+                                    <td data-dynatable-column="View">View</td>
+                                </tr>
+                            </thead>
+                        </table>  
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Select2 js and css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    
+    <!-- dynatable js and css -->
+    <link href="css/jquery.dynatable.css" rel="stylesheet" />
+    <script src="js/jquery.dynatable.js"></script>
+
+    <!-- Custom js -->
+    <script src="js/TutorStudy.js"></script>
+    <script src="js/tutors.js"></script>
+</body>
+
+</html>
