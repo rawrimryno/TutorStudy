@@ -166,16 +166,86 @@
                             Search from our extensive tutor database to find the exact tutor for you
                             and scheduling a tutor session is as simple as a couple of clicks!
                         </p>
-                        <h3 class="page-header">What do I need to do?</h3>    
+                        <h3 class="page-header">What do I need to do?</h3>
+                            <div class="alert" id="loginInfo" style="display:none">
+                                <a class="close" onClick="$('#loginInfo').hide('slow');" aria-label="close">&times;</a>
+                                <div id="alertLoginInfo"></div>
+                            </div>
+                            <form id="loginForm" class="login" style="display:none">
+                                <a class="close" onClick="$('#loginForm').hide('slow');" aria-label="close">&times;</a>
+                                <div class="form-group">
+                                    <label for="email">Email Address:</label>
+                                    <input type="email" class="form-control" name="email" placeholder="Email" value="">
+                                    <label for="password">Password:</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Password" value="">
+                                    <br>
+                                    <button type="button" class="btn btn-primary" onClick="Login()">Login</button> 
+                                </div>
+                            </form>   
+                            <div class="alert" id="registerInfo" style="display:none">
+                                <a href="#" class="close" onClick="$('#registerInfo').hide('slow');" aria-label="close">&times;</a>
+                                <div id="alertRegisterInfo"></div>
+                            </div>
+                            <div id="registrationForm" class="form-group" style="display:none">
+                                <a class="close" onClick="$('#registrationForm').hide('slow');" aria-label="close">&times;</a>
+                                <label for="accountType">Register as a Student or Tutor</label><br>
+                                <input type="radio" name="accountType" value="Student" onClick="changeRegisterForm(this);">Student
+                                <input type="radio" name="accountType" value="Tutor" onClick="changeRegisterForm(this);">Tutor <br>
+                            </div>
+                            <form id="tutorRegistrationForm" class="login"  style="display:none;">
+                                <a class="close" onClick="$('#tutorRegistrationForm').hide('slow');" aria-label="close">&times;</a>
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text" class="form-control" name="name" placeholder="Name" value="">
+                                    <label for="email">Email Address:(LSU valid email)</label>
+                                    <input type="email" class="form-control" name="email" placeholder="Email" value="">
+                                    <label for="password">Password:</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Password" value="">
+                                    <label for="confirmPassword">Confirm Password:</label>
+                                    <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" value="">
+                                    <br>
+                                    <label for="major">Major:</label>
+                                    <select id="tutorMajorSelect" name="major" class="form-control"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" style="width:300px">
+                                        <option></option>
+                                    </select>
+                                    <br><br>
+                                    <label for="description">Description:</label>
+                                    <textarea rows="" cols="" class="form-control" name="description" placeholder="Write about yourself..." value=""></textarea>
+                                    <label for="rate">fee/hour:</label>
+                                    <input type="number" class="form-control" name="rate" placeholder="" value="" min="1" max="150">
+                                    <br>
+                                    <button type="button" class="btn btn-primary" onClick="registerTutor();">Register</button> 
+                                </div>
+                            </form>
+                            <form id="studentRegistrationForm" class="login" style="display:none;">
+                                <a class="close" onClick="$('#studentRegistrationForm').hide('slow');" aria-label="close">&times;</a>
+                                <div class="form-group">
+                                    <label for="name">Name:</label>
+                                    <input type="text" class="form-control" name="name" placeholder="Name" value="">
+                                    <label for="email">Email Address:(LSU valid email)</label>
+                                    <input type="email" class="form-control" name="email" placeholder="Email" value="">
+                                    <label for="password">Password:</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Password" value="">
+                                    <label for="confirmPassword">Confirm Password:</label>
+                                    <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" value="">
+                                    <br>
+                                    <label for="major">Major:</label>
+                                    <select id="studentMajorSelect" name="major" class="form-control"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" style="width:300px">
+                                        <option></option>
+                                    </select>
+                                    <br><br>
+                                    <button type="button" class="btn btn-primary" onClick="registerStudent();">Register</button> 
+                                </div>
+                            </form>
                         <p class="paragraph">
-                            If you're student looking for a tutor, all you need to do is <a data-toggle="modal" data-target="#loginModal">login</a>
-                            or <a data-toggle="modal" data-target="#registerModal">register</a> as a student! Then, you can search for a tutor and schedule
+                            If you're student looking for a tutor, all you need to do is <a onClick="$('#loginForm').show('slow');$('#registrationForm').hide('slow');">login</a>
+                            or <a onClick="$('#registrationForm').show('slow');$('#loginForm').hide('slow');">register</a> as a student! Then, you can search for a tutor and schedule
                             a tutor session within a handful of clicks.
                         </p>   
                     </div>
                 </div>
 
-                <!-- Login Modal -->
+                <!-- Login Modal
                 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModal" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -206,9 +276,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <!-- /.Login Modal -->
-                <!-- Sign up Modal-->
+                <!-- Sign up Modal
                 <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModal" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -276,7 +346,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
                 <!-- ./Sign up Modal-->
             </div>
             <!-- /.container-fluid -->

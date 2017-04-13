@@ -86,7 +86,7 @@ function registerTutor(){
             $("#alertRegisterInfo").text(data);
             $("#registerInfo").show('fast');
             setTimeout(function(){$("#registerInfo").hide('fast');}, 2000);
-            setTimeout(function(){$("#registerModal").modal('toggle');},500);
+            setTimeout(function(){$("#tutorRegistrationForm").hide('slow');},500);
         }
     });
 }
@@ -107,6 +107,7 @@ function registerStudent(){
             $("#alertRegisterInfo").text(data);
             $("#registerInfo").show('fast');
             setTimeout(function(){$("#registerInfo").hide('fast');}, 2000);
+            setTimeout(function(){$("#studentRegistrationForm").hide('slow');},500);
         }
     });
 }
@@ -166,7 +167,10 @@ function Login(){
                 $("#loginInfo").show('fast');
                 if (data.includes("Success")){
                     loadUser();
-                    setTimeout(function(){$("#loginModal").modal('toggle');}, 2000);
+                    setTimeout(function(){
+                        $("#loginForm").hide('slow');
+                        $("#loginInfo").hide('slow');
+                    }, 2000);
                 }
             }
         });

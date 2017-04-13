@@ -7,33 +7,11 @@ By: Ryan Ngo
 */
 
 /* Generic Functions */
-function loadMajorAbrv(){
-     $.ajax({
-        type: "GET",
-        async: false,
-        dataType: "json",
-        url: "http://52.38.218.199/TutorStudyServlet/GetMajorAbrv",
-        success:function(data){
-            $("#majorSelect").select2({
-                data :  $.map(data, function(data){
-                            return{
-                                id: data.id,
-                                text: data.Abrv         
-                            }
-                        }),
-                createTag: function(){
-                    return null;
-                }
-                        
-            });
-        }
-    });
-}
 
 function loadTutors(){
     var fields = [];
     $("#majorSelect option:selected").each(function(i, selected){
-        fields[i] = $(selected).text();
+        fields[i] = $(selected).val();
     });
     $.ajax({
         type: "GET",
@@ -73,7 +51,7 @@ function loadMajors(){
         dataType: "json",
         url: "http://52.38.218.199/TutorStudyServlet/GetMajors",
         success:function(data){
-            $("#studentMajorSelect").select2({
+            $("#tutorMajorSelect").select2({
                 data :  $.map(data, function(data){
                             return{
                                 id: data.id,
@@ -83,9 +61,8 @@ function loadMajors(){
                 createTag: function(){
                     return null;
                 }
-                        
             });
-            $("#tutorMajorSelect").select2({
+            $("#majorSelect").select2({
                 data :  $.map(data, function(data){
                             return{
                                 id: data.id,
@@ -151,7 +128,6 @@ function loadTutor(UID){
 
 /* Document Ready Functions */
 $(document).ready(function(){
-    loadMajorAbrv();
     loadTutors();
     loadMajors();
     loadClasses();
