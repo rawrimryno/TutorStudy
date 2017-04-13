@@ -25,7 +25,7 @@ function loadTutors(){
                         Name: data.Name,
                         Major: data.Major,
                         Rate: "$"+data.Rate,
-                        AvgRating: data.AvgRating,
+                        AvgRating: data.AvgRating+"/5",
                         View: "<button class='btn btn-primary' type='button' onClick='loadTutor("+
                                 data.UID+");'>View Tutor</button>"
                     };
@@ -120,6 +120,7 @@ function loadTutor(UID){
             $("#tutorInfoForm textarea[name='description']").val(result.Description);
             $("#tutorInfoForm input[name='rate']").val(result.Rate);
             $("#tutorMajorSelect").val(result.MID).trigger('change');
+            $("#tutorInfoForm input[name='avgRating']").val(result.AvgRating+"/5");
         }
     });
     $("#tutorInfoForm").show('slow');
