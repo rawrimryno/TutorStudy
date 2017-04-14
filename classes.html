@@ -123,6 +123,45 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
+                        <form id="tutorInfoForm" class="login" style="display:none">
+                            <div class="form-group">
+                                <a href="#" class="close" onClick="$('#tutorInfoForm').hide('slow');" aria-label="close">&times;</a>
+                                <label for="name">Name:</label>
+                                <input type="text" class="form-control" name="name" placeholder="Name" value="" disabled>
+                                <label for="email">Email Address:(LSU valid email)</label>
+                                <input type="email" class="form-control" name="email" placeholder="Email" value="" disabled><br>
+                                <label for="major">Major:</label>
+                                <select id="tutorMajorSelect" name="major" class="form-control responsive"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" disabled style="width:100%">
+                                    <option></option>
+                                </select>
+                                <br><br>
+                                <label for="description">Description:</label>
+                                <textarea rows="" cols="" class="form-control" name="description" placeholder="Write about yourself..." value="" disabled></textarea>
+                                <label for="rate">fee/hour:</label>
+                                <input type="number" class="form-control" name="rate" placeholder="" value="" min="1" max="150" disabled>
+                                <br>
+                                <label for="classes">Courses Available for tutoring:</label>
+                                <select id="classSelect" name="classes" class="form-control" data-tags="true"  data-allow-clear="true" data-placeholder="Select an option" multiple="multiple" disabled style="width:100%">
+                                </select><br>
+                                <label for="avgRating">Average Rating</label>
+                                <input type="text" class="form-control" name="avgRating" placeholder="" value="" disabled><br>
+                                <button type="button" class="btn btn-default">Schedule a Session</button>
+                            </div>
+                        </form>
+                        <div class="container-fluid" id="tutorContainer" style="display:none">
+                                <a href="#" class="close" onClick="$('#tutorContainer').hide('slow');" aria-label="close">&times;</a>
+                            <table class="table table-bordered table-hover" id="tutors">
+                                <thead>
+                                    <tr>
+                                        <td data-dynatable-column="TID" style="display:none">TID</td>
+                                        <td data-dynatable-column="Name" >Name</td>
+                                        <td data-dynatable-column="Rate">Fee</td>
+                                        <td data-dynatable-column="AvgRating">Avg. Rating</td>
+                                        <td data-dynatable-column="Contact"></td>
+                                    </tr>
+                                </thead>
+                            </table>   
+                        </div>
                         <form id="classSearch">
                             <div class="form-group">
                                 <label form="majorSelect">Select a major to view classes or search a class by name</label><br>

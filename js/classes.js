@@ -10,7 +10,7 @@ By: Ryan Ngo
 function loadMajorAbrv(){
      $.ajax({
         type: "GET",
-        async: "false",
+        async: false,
         dataType: "json",
         url: "http://52.38.218.199/TutorStudyServlet/GetMajorAbrv",
         success:function(data){
@@ -63,7 +63,102 @@ function loadClasses(){
 }
 
 function loadTutors(CID){
-    console.log(CID);
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "http://52.38.218.199/TutorStudyServlet/GetClassTutors",
+        data: {CID:CID}
+    }).done(function (response) {
+        response = $.map(response, function(data){
+                            return{
+                                TID: data.TID,
+                                Name: data.Name,
+                                Rate: "$"+ data.Rate,
+                                AvgRating: data.AvgRating,
+                                Contact: "<button type='button' class='btn btn-primary' onClick='loadTutor("
+                                            +data.UID+");'>View Profile</button>"         
+                            };
+                        });
+        var dynatable = $('#tutors').dynatable({
+            dataset: {
+                records: response
+            }
+        }).data('dynatable');
+
+        dynatable.settings.dataset.originalRecords = response;
+        dynatable.process();
+
+        $("#tutorContainer").show('slow');
+    });
+}
+
+
+function loadTutorFormMajors(){
+     $.ajax({
+        type: "GET",
+        async: false,
+        dataType: "json",
+        url: "http://52.38.218.199/TutorStudyServlet/GetMajors",
+        success:function(data){
+            $("#tutorMajorSelect").select2({
+                data :  $.map(data, function(data){
+                            return{
+                                id: data.id,
+                                text: data.major         
+                            }
+                        }),
+                createTag: function(){
+                    return null;
+                }
+            });
+        }
+    });
+}
+
+function loadTutorFormClasses(){
+    $.ajax({
+        type: "GET",
+        async: false,
+        dataType: "json",
+        url: "http://52.38.218.199/TutorStudyServlet/GetClasses",
+        success :function(response){
+            response = $.map(response, function(data){
+                            return{
+                                id: data.CID,
+                                text: data.Abrv+" "+data.CNum+"-"+data.CName        
+                            }
+                        });
+            $("#classSelect").select2({
+                data :  response,
+                createTag: function(){
+                    return null;
+                }
+                        
+            });
+        }
+    });
+}
+
+function loadTutor(UID){
+    $.ajax({
+        type: "GET",
+        async: false,
+        data: {UID: UID},
+        dataType: "JSON",
+        url: "http://52.38.218.199/TutorStudyServlet/GetTutorInfo",
+        success: function(data){
+            var result = data;
+            $("#classSelect").val(result.classes).trigger('change');
+            $("#studentInfoForm").hide();
+            $("#tutorInfoForm input[name='name']").val(result.name);
+            $("#tutorInfoForm input[name='email']").val(result.email);
+            $("#tutorInfoForm textarea[name='description']").val(result.Description);
+            $("#tutorInfoForm input[name='rate']").val(result.Rate);
+            $("#tutorMajorSelect").val(result.MID).trigger('change');
+            $("#tutorInfoForm input[name='avgRating']").val(result.AvgRating+"/5");
+        }
+    });
+    $("#tutorInfoForm").show('slow');
 }
 /* End Generic Functions */
 
@@ -75,5 +170,7 @@ function loadTutors(CID){
 $(document).ready(function(){
     loadMajorAbrv();
     loadClasses();
+    loadTutorFormMajors();
+    loadTutorFormClasses();
 });
 /* End Document Ready Functions */
