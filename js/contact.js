@@ -100,7 +100,7 @@ function submitSessionRequest(){
     if (!verifyFields(fields))
         return;
     fields = $("#scheduleSession").serialize();
-    /*$.ajax({
+    $.ajax({
         type: "POST",
         url: "http://52.38.218.199/TutorStudyServlet/RequestSession",
         data: fields,
@@ -111,7 +111,7 @@ function submitSessionRequest(){
             $("#alertSessionInfo").text(data);
             $("#sessionInfo").show('fast');
         }
-    });*/
+    });
 }
 
 function verifyFields(fields){
