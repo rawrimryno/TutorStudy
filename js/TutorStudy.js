@@ -208,4 +208,18 @@ function logout(){
     });
     window.location.replace("http://52.38.218.199/TutorStudy");
 }
+
+function checkLogin(){
+    $.ajax({
+        type: "GET",
+        url: "http://52.38.218.199/TutorStudyServlet/CheckLogin",
+        success: function(data){
+            var result = $.trim(data);
+            if (result =="false"){
+                alert("You must be logged in to access this content.");
+                window.location.replace("http://52.38.218.199/TutorStudy/");
+            }
+        }
+    });
+}
 /* End Misc User Functions */

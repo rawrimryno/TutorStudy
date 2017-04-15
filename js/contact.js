@@ -91,8 +91,45 @@ function loadTutor(UID){
 
 /* End Generic Functions */
 
+/* Session Request Functions */
+
+function submitSessionRequest(){
+    var fields = $("#scheduleSession").serializeArray();
+    if (!verifyFields(fields))
+        return;
+    fields = $("#scheduleSession").serialize();
+    /*$.ajax({
+        type: "POST",
+        url: "http://52.38.218.199/TutorStudyServlet/RequestSession",
+        data: fields,
+        success: function(data){
+            $("#sessionInfo").removeClass("alert-danger");
+            $("#sessionInfo").removeClass("alert-success");
+            $("#sessionInfo").addClass("alert-info");
+            $("#alertSessionInfo").text(data);
+            $("#sessionInfo").show('fast');
+        }
+    });*/
+}
+
+function verifyFields(fields){
+    for(var i = 0; i < fields.length-1; i++){
+        if(fields[i].value==null || fields[i].value==""){
+            $("#sessionInfo").removeClass("alert-success");
+            $("#sessionInfo").addClass("alert-danger");
+            $("#alertSessionInfo").text("Please fill in all required information. You are missing the " +fields[i].name+".");
+            $("#sessionInfo").show('fast');
+            setTimeout(function(){$("#registerInfo").hide('fast');}, 2000);
+            return false;
+        }
+    }
+}
+
+/* End Session Request Functions */
+
 /* Document Ready Functions */
 $(document).ready(function(){
+    checkLogin();
     loadTutorFormMajors();
     loadTutorFormClasses();
     loadTutor($_GET("Tutor"));

@@ -147,22 +147,26 @@
                                 <input type="text" class="form-control" name="avgRating" placeholder="" value="" disabled><br>
                             </div>
                         </form>
+                        <div class="alert" id="sessionInfo" style="display:none">
+                                <a href="#" class="close" onClick="$('#sessionInfo').hide('slow');" aria-label="close">&times;</a>
+                                <div id="alertSessionInfo"></div>
+                            </div>
                         <form id="scheduleSession" class = "login"> 
                             <h3>Schedule a Session</h3>
-                            <label for="datepicker">Choose an available date:</label>
-                            <input name = "datpicker"class="form-control" type="text" id="datepicker">
+                            <label for="date">Choose an available date:</label>
+                            <input name = "date"class="form-control" type="text" id="datepicker">
                             
-                            <label for="timepicker">Choose an available time:</label>
-                            <input name = "timepicker"class="form-control" type="text" id="timepicker">
+                            <label for="time">Choose an available time:</label>
+                            <input name = "time"class="form-control" type="text" id="timepicker">
 
-                            <label for="tutorClass">Select a class</label>
-                            <select id="tutorClass" name="tutorClass" class="form-control responsive"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" style="width:100%">
+                            <label for="course">Select a course</label>
+                            <select id="tutorClass" name="course" class="form-control responsive"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" style="width:100%">
                                     <option></option>
                             </select>
                             <label for="notes">Notes:</label>
                             <textarea rows="" cols="" class="form-control" name="notes" placeholder="Write down any additional notes you might have for the tutor..." value=""></textarea>
                             <br>
-                            <button type="button" class="btn btn-primary">Submit Request</button>
+                            <button type="button" class="btn btn-primary" onClick="submitSessionRequest();">Submit Request</button>
                             <br><br>
                         </form>
                     </div>
