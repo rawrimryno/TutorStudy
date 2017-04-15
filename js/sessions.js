@@ -12,6 +12,6 @@ By: Ryan Ngo
 /* Document Ready Functions */
 $(document).ready(function(){
     checkLogin();
-}
+});
 
 /* End Document Ready Functions */
