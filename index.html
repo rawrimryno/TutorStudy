@@ -191,52 +191,50 @@
                                 <label for="accountType">Register as a Student or Tutor</label><br>
                                 <input type="radio" name="accountType" value="Student" onClick="changeRegisterForm(this);">Student
                                 <input type="radio" name="accountType" value="Tutor" onClick="changeRegisterForm(this);">Tutor <br>
+                                <form id="tutorRegistrationForm" class="login"  style="display:none;">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" name="name" placeholder="Name" value="">
+                                        <label for="email">Email Address:(LSU valid email)</label>
+                                        <input type="email" class="form-control" name="email" placeholder="Email" value="">
+                                        <label for="password">Password:</label>
+                                        <input type="password" class="form-control" name="password" placeholder="Password" value="">
+                                        <label for="confirmPassword">Confirm Password:</label>
+                                        <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" value="">
+                                        <br>
+                                        <label for="major">Major:</label>
+                                        <select id="tutorMajorSelect" name="major" class="form-control"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" style="width:300px">
+                                            <option></option>
+                                        </select>
+                                        <br><br>
+                                        <label for="description">Description:</label>
+                                        <textarea rows="" cols="" class="form-control" name="description" placeholder="Write about yourself..." value=""></textarea>
+                                        <label for="rate">fee/hour:</label>
+                                        <input type="number" class="form-control" name="rate" placeholder="" value="" min="1" max="150">
+                                        <br>
+                                        <button type="button" class="btn btn-primary" onClick="registerTutor();">Register</button> 
+                                    </div>
+                                </form>
+                                <form id="studentRegistrationForm" class="login" style="display:none;">
+                                    <div class="form-group">
+                                        <label for="name">Name:</label>
+                                        <input type="text" class="form-control" name="name" placeholder="Name" value="">
+                                        <label for="email">Email Address:(LSU valid email)</label>
+                                        <input type="email" class="form-control" name="email" placeholder="Email" value="">
+                                        <label for="password">Password:</label>
+                                        <input type="password" class="form-control" name="password" placeholder="Password" value="">
+                                        <label for="confirmPassword">Confirm Password:</label>
+                                        <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" value="">
+                                        <br>
+                                        <label for="major">Major:</label>
+                                        <select id="studentMajorSelect" name="major" class="form-control"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" style="width:300px">
+                                            <option></option>
+                                        </select>
+                                        <br><br>
+                                        <button type="button" class="btn btn-primary" onClick="registerStudent();">Register</button> 
+                                    </div>
+                                </form>
                             </div>
-                            <form id="tutorRegistrationForm" class="login"  style="display:none;">
-                                <a class="close" onClick="$('#tutorRegistrationForm').hide('slow');" aria-label="close">&times;</a>
-                                <div class="form-group">
-                                    <label for="name">Name:</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Name" value="">
-                                    <label for="email">Email Address:(LSU valid email)</label>
-                                    <input type="email" class="form-control" name="email" placeholder="Email" value="">
-                                    <label for="password">Password:</label>
-                                    <input type="password" class="form-control" name="password" placeholder="Password" value="">
-                                    <label for="confirmPassword">Confirm Password:</label>
-                                    <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" value="">
-                                    <br>
-                                    <label for="major">Major:</label>
-                                    <select id="tutorMajorSelect" name="major" class="form-control"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" style="width:300px">
-                                        <option></option>
-                                    </select>
-                                    <br><br>
-                                    <label for="description">Description:</label>
-                                    <textarea rows="" cols="" class="form-control" name="description" placeholder="Write about yourself..." value=""></textarea>
-                                    <label for="rate">fee/hour:</label>
-                                    <input type="number" class="form-control" name="rate" placeholder="" value="" min="1" max="150">
-                                    <br>
-                                    <button type="button" class="btn btn-primary" onClick="registerTutor();">Register</button> 
-                                </div>
-                            </form>
-                            <form id="studentRegistrationForm" class="login" style="display:none;">
-                                <a class="close" onClick="$('#studentRegistrationForm').hide('slow');" aria-label="close">&times;</a>
-                                <div class="form-group">
-                                    <label for="name">Name:</label>
-                                    <input type="text" class="form-control" name="name" placeholder="Name" value="">
-                                    <label for="email">Email Address:(LSU valid email)</label>
-                                    <input type="email" class="form-control" name="email" placeholder="Email" value="">
-                                    <label for="password">Password:</label>
-                                    <input type="password" class="form-control" name="password" placeholder="Password" value="">
-                                    <label for="confirmPassword">Confirm Password:</label>
-                                    <input type="password" class="form-control" name="confirmPassword" placeholder="Confirm Password" value="">
-                                    <br>
-                                    <label for="major">Major:</label>
-                                    <select id="studentMajorSelect" name="major" class="form-control"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" style="width:300px">
-                                        <option></option>
-                                    </select>
-                                    <br><br>
-                                    <button type="button" class="btn btn-primary" onClick="registerStudent();">Register</button> 
-                                </div>
-                            </form>
                         <p class="paragraph">
                             If you're student looking for a tutor, all you need to do is <a onClick="$('#loginForm').show('slow');$('#registrationForm').hide('slow');">login</a>
                             or <a onClick="$('#registrationForm').show('slow');$('#loginForm').hide('slow');">register</a> as a student! Then, you can search for a tutor and schedule
