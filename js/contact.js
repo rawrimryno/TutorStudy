@@ -105,6 +105,7 @@ function submitSessionRequest(){
         url: "http://52.38.218.199/TutorStudyServlet/RequestSession",
         data: fields,
         success: function(data){
+            console.log(data);
             $("#sessionInfo").removeClass("alert-danger");
             $("#sessionInfo").removeClass("alert-success");
             $("#sessionInfo").addClass("alert-info");
