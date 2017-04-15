@@ -70,7 +70,7 @@ function loadTutor(UID){
             $("#tutorInfoForm input[name='rate']").val(result.Rate);
             $("#tutorMajorSelect").val(result.MID).trigger('change');
             $("#tutorInfoForm input[name='avgRating']").val(result.AvgRating+"/5");
-            $("#tutorInfoForm input[name='tutorUID']").val(1);
+            $("#scheduleSession input[name='tutorUID']").val(UID);
             var classOptions = [];
             result.classes.forEach(function(element){
                 var option = {
