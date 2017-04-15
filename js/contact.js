@@ -126,6 +126,7 @@ function verifyFields(fields){
             return false;
         }
     }
+    return true;
 }
 
 /* End Session Request Functions */
