@@ -210,6 +210,7 @@ function logout(){
 function checkLogin(){
     $.ajax({
         type: "GET",
+        async: false,
         url: "http://52.38.218.199/TutorStudyServlet/CheckLogin",
         success: function(data){
             var result = $.trim(data);
