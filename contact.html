@@ -122,6 +122,50 @@
                             <small>Schedule a Session!</small>
                         </h1>              
                     </div>
+                     <div class="row">
+                    <div class="col-lg-12">
+                        <form id="tutorInfoForm" class="login" style="display:none">
+                            <div class="form-group">
+                                <label for="name">Name:</label>
+                                <input type="text" class="form-control" name="name" placeholder="Name" value="" disabled>
+                                <label for="email">Email Address:(LSU valid email)</label>
+                                <input type="email" class="form-control" name="email" placeholder="Email" value="" disabled><br>
+                                <label for="major">Major:</label>
+                                <select id="tutorMajorSelect" name="major" class="form-control responsive"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" disabled style="width:100%">
+                                    <option></option>
+                                </select>
+                                <br><br>
+                                <label for="description">Description:</label>
+                                <textarea rows="" cols="" class="form-control" name="description" placeholder="Write about yourself..." value="" disabled></textarea>
+                                <label for="rate">fee/hour:</label>
+                                <input type="number" class="form-control" name="rate" placeholder="" value="" min="1" max="150" disabled>
+                                <br>
+                                <label for="classes">Courses Available for tutoring:</label>
+                                <select id="classSelect" name="classes" class="form-control" data-tags="true"  data-allow-clear="true" data-placeholder="Select an option" multiple="multiple" disabled style="width:100%">
+                                </select><br>
+                                <label for="avgRating">Average Rating</label>
+                                <input type="text" class="form-control" name="avgRating" placeholder="" value="" disabled><br>
+                            </div>
+                        </form>
+                        <form id="scheduleSession" class = "login"> 
+                            <h3>Schedule a Session</h3>
+                            <label for="datepicker">Choose an available date:</label>
+                            <input name = "datpicker"class="form-control" type="text" id="datepicker">
+                            
+                            <label for="timepicker">Choose an available time:</label>
+                            <input name = "timepicker"class="form-control" type="text" id="timepicker">
+
+                            <label for="tutorClass">Select a class</label>
+                            <select id="tutorClass" name="tutorClass" class="form-control responsive"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" style="width:100%">
+                                    <option></option>
+                            </select>
+                            <label for="notes">Notes:</label>
+                            <textarea rows="" cols="" class="form-control" name="notes" placeholder="Write down any additional notes you might have for the tutor..." value=""></textarea>
+                            <br>
+                            <button type="button" class="btn btn-primary">Submit Request</button>
+                            <br><br>
+                        </form>
+                    </div>
                 </div>
             </div>
             <!-- /.container-fluid -->
@@ -134,7 +178,10 @@
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
-
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.10.0/jquery.timepicker.min.css">
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
@@ -144,6 +191,7 @@
     
     <!-- Custom js -->
     <script src="js/TutorStudy.js"></script>
+    <script src="js/contact.js"></script>
 </body>
 
 </html>
