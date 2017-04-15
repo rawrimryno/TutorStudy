@@ -56,12 +56,10 @@ function changeRegisterForm(type){
         case("Student"):
             $("#tutorRegistrationForm").hide();
             $("#studentRegistrationForm").show("slow");
-            console.log("student form loaded");
             break;
         case("Tutor"):
             $("#studentRegistrationForm").hide();
             $("#tutorRegistrationForm").show("slow");
-            console.log("tutor form loaded");
             break;
         default:
             console.log("Error: Account Type not found");

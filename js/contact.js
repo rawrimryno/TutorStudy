@@ -70,6 +70,7 @@ function loadTutor(UID){
             $("#tutorInfoForm input[name='rate']").val(result.Rate);
             $("#tutorMajorSelect").val(result.MID).trigger('change');
             $("#tutorInfoForm input[name='avgRating']").val(result.AvgRating+"/5");
+            $("#tutorInfoForm input[name='tutorUID']").val(result.UID);
             var classOptions = [];
             result.classes.forEach(function(element){
                 var option = {
@@ -95,6 +96,7 @@ function loadTutor(UID){
 
 function submitSessionRequest(){
     var fields = $("#scheduleSession").serializeArray();
+    console.log(fields);
     if (!verifyFields(fields))
         return;
     fields = $("#scheduleSession").serialize();
