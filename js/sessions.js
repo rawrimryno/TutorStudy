@@ -51,6 +51,7 @@ function loadTutorSessions(){
     }).done(function (response) {
         response = $.map(response, function(data){
                     return{
+                        TSID: data.TSID,
                         Name: data.name,
                         Course: data.course,
                         Date: data.datetime,
