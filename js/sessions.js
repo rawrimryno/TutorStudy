@@ -57,9 +57,9 @@ function loadTutorSessions(){
                         Date: data.datetime,
                         Location: data.location,
                         Action: "<select class='form-control>"+
-                                    "<option>Accept</option>"+
-                                    "<option>Reschedule</option>"+
-                                    "<option>Decline</option>"+
+                                    "<option value='1'>Accept</option>"+
+                                    "<option value='0'>Reschedule</option>"+
+                                    "<option value='-1'>Decline</option>"+
                                 "</select><br>"+
                                 "<button class='btn btn-primary'>Submit Response</button>"
                     };
