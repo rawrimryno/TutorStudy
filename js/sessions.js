@@ -45,6 +45,7 @@ function changePendingSession(TSID, value){
 
 function processResponse(TSID){
     var response = $("#"+TSID+"Select").val();
+    console.log(response);
     switch(response){
         case -1:
             break;
