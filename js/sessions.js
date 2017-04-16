@@ -317,7 +317,7 @@ function loadPastSessions(){
                         Course: data.course,
                         Date: data.datetime,
                         Location: data.location,
-                        Action: "<button class='btn btn-primary' onClick=''>Submit Review</button>"
+                        Review: "<button class='btn btn-primary' onClick=''>Submit Review</button>"
                     };
                 });
         var dynatable = $('#pastSessions').dynatable({
