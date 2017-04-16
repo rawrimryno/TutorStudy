@@ -76,6 +76,7 @@ function loadTutorSessions(){
                                     "<input name = 'time'class='form-control' type='text' id='timepicker'>"+
                                     "<label for='location'>Please input a location:</label>"+
                                     "<input name = 'location'class='form-control' type='text' id='location' value='"+data.location+"'>"+
+                                "</form>"+
                                 "<button cass='btn btn-primary'>Submit Response</button>"
                     };
                 });
