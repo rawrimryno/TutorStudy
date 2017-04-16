@@ -43,12 +43,33 @@ function changePendingSession(TSID, value){
     }
 }
 
+function processResponse(TSID){
+   var fields = $("#"+TSID).serializeArray();
+   if (!verifyFields(fields)){
+       return;
+   }
+   console.log(fields);
+}
+
+function verifyFields(fields){
+    for(var i in fields){
+        if(fields[i].value==null || fields[i].value==""){
+            $("#pendingTutorSessionsInfo").removeClass("alert-success");
+            $("#pendingTutorSessionsInfo").addClass("alert-danger");
+            $("#alertPendingTutorSessionsInfo").text("Please fill in all required information. You are missing the " +fields[i].name+".");
+            $("#pendingTutorSessionsInfo").show('fast');
+            setTimeout(function(){$("#pendingTutorSessionsInfo").hide('fast');}, 2000);
+            return false;
+        }
+    }
+    return true;
+}
+
 /* End Generic Functions */
 
 /* Load Session Functions */
 
 function loadStudentSessions(){
-   
 }
 
 function loadTutorSessions(){
@@ -78,7 +99,7 @@ function loadTutorSessions(){
                                     "<p>Please input a location:</p>"+
                                     "<input name = 'location'class='form-control' type='text' id='location' value='"+data.location+"'>"+
                                 "</form>"+
-                                "<button class='btn btn-primary'>Submit Response</button>"
+                                "<button class='btn btn-primary' onClick='processResponse("+data.TSID+");'>Submit Response</button>"
                     };
                 });
         var dynatable = $('#pendingTutorSessions').dynatable({
