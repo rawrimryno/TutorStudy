@@ -72,6 +72,7 @@ function processResponse(TSID){
                     $("#alertPendingTutorSessionsInfo").text(data);
                     $("#pendingTutorSessionsInfo").show('fast');
                     setTimeout(function(){$("#pendingTutorSessionsInfo").hide('fast');}, 2000);
+                    loadTutorSessions();
                 }
             });
             break;
