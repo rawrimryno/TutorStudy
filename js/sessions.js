@@ -70,7 +70,26 @@ function processResponse(TSID){
             if (!verifyFields(fields)){
                 return;
             }
-            console.log(fields);
+            $.ajax({
+                type: "POST",
+                async: false,
+                data: {
+                        TSID: TSID,
+                        date: fields[0].value,
+                        time: fields[1].value,
+                        location: fields[2].value
+                    },
+                url: "http://52.38.218.199/TutorStudyServlet/UpdateTutorConflictSession",
+                success: function(data){
+                    $("#pendingTutorSessionsInfo").removeClass("alert-success");
+                    $("#pendingTutorSessionsInfo").removeClass("alert-danger");
+                    $("#pendingTutorSessionsInfo").addClass("alert-info");
+                    $("#alertPendingTutorSessionsInfo").text(data);
+                    $("#pendingTutorSessionsInfo").show('fast');
+                    setTimeout(function(){$("#pendingTutorSessionsInfo").hide('fast');}, 2000);
+                    loadTutorSessions();
+                }
+            });
             break;
         case '1':
             $.ajax({
