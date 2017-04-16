@@ -52,7 +52,7 @@ function processResponse(TSID){
                     type: "POST",
                     async: false,
                     data: {TSID: TSID},
-                    url: "http://52.38.218.199/TutorStudyServlet/UpdateTutorDeleteSession",
+                    url: "http://52.38.218.199/TutorStudyServlet/UpdateTutorDeclineSession",
                     success: function(data){
                         $("#pendingTutorSessionsInfo").removeClass("alert-success");
                         $("#pendingTutorSessionsInfo").removeClass("alert-danger");
