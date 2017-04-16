@@ -47,10 +47,25 @@ function loadTutorSessions(){
     $.ajax({
         type: "GET",
         dataType: "JSON",
-        url: "http://52.38.218.199/TutorStudyServlet/GetTutorSessions",
-        success: function(data){
-            console.log(data);
-        }
+        url: "http://52.38.218.199/TutorStudyServlet/GetPendingTutorSessions"
+    }).done(function (response) {
+        response = $.map(response, function(data){
+                    return{
+                        Name: data.name,
+                        Course: data.course,
+                        Date: data.datetime,
+                        Location: data.location,
+                        View: "<button class='btn btn-primary' type='button'>Action</button>"
+                    };
+                });
+        var dynatable = $('#result').dynatable({
+            dataset: {
+                records: response
+            }
+        }).data('dynatable');
+
+        dynatable.settings.dataset.originalRecords = response;
+        dynatable.process();
     });
 }
 
