@@ -70,11 +70,11 @@ function loadTutorSessions(){
                                     "<option value='-1'>Decline</option>"+
                                 "</select>"+
                                 "<form id='"+data.TSID+"' class='form-control' style='display:none'>"+
-                                    "<label for='date'>Choose an available date:</label>"+
-                                    "<input name = 'date'class='form-control' type='text' id='datepicker'>"+
-                                    "<label for='time'>Choose an available time:</label>"+
+                                    "<p>Choose an available date:</p>"+
+                                    "<input name ='date' class='form-control' type='text' id='datepicker'>"+
+                                    "<p>Choose an available time:</p>"+
                                     "<input name = 'time'class='form-control' type='text' id='timepicker'>"+
-                                    "<label for='location'>Please input a location:</label>"+
+                                    "<p>Please input a location:</p>"+
                                     "<input name = 'location'class='form-control' type='text' id='location' value='"+data.location+"'>"+
                                 "</form>"+
                                 "<button class='btn btn-primary'>Submit Response</button>"
