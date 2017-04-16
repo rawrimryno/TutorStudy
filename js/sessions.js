@@ -105,18 +105,14 @@ function loadPastSessions(){
 $(document).ready(function(){
     checkLogin();
     loadUserSession();
-    $(".datepicker").forEach(function(element){
-        element.datepicker({
-            dateFormat:'yy-mm-dd'
-        });
+    $(".datepicker").datepicker({
+        dateFormat:'yy-mm-dd'
     });
-    $(".timepicker").forEach(function(element){
-        element.timepicker({
-            minTime: '7:00am',
-            maxTime: '10:00pm',
-            timeFormat: 'H:i:s',
-            step:60
-        });
+    $(".timepicker").timepicker({
+        minTime: '7:00am',
+        maxTime: '10:00pm',
+        timeFormat: 'H:i:s',
+        step:60
     });
 });
 
