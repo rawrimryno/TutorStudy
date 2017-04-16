@@ -54,6 +54,7 @@ function loadStudentSessions(){
 function loadTutorSessions(){
     $.ajax({
         type: "GET",
+        async: false,
         dataType: "JSON",
         url: "http://52.38.218.199/TutorStudyServlet/GetPendingTutorSessions"
     }).done(function (response) {
