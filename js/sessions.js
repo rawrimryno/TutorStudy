@@ -304,7 +304,31 @@ function loadUpcomingSessions(){
 }
 
 function loadPastSessions(){
+    $.ajax({
+        type: "GET",
+        async: false,
+        dataType: "JSON",
+        url: "http://52.38.218.199/TutorStudyServlet/GetPastSessions"
+    }).done(function (response) {
+        response = $.map(response, function(data){
+                    return{
+                        TSID: data.TSID,
+                        Name: data.name,
+                        Course: data.course,
+                        Date: data.datetime,
+                        Location: data.location,
+                        Action: "<button class='btn btn-primary' onClick=''>Submit Review</button>"
+                    };
+                });
+        var dynatable = $('#pastSessions').dynatable({
+            dataset: {
+                records: response
+            }
+        }).data('dynatable');
 
+        dynatable.settings.dataset.originalRecords = response;
+        dynatable.process();
+    });
 }
 
 /* End Load Session Functions */
