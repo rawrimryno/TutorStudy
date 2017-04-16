@@ -71,9 +71,9 @@ function loadTutorSessions(){
                                 "</select>"+
                                 "<form id='"+data.TSID+"' class='login' style='display:none'>"+
                                     "<p>Choose an available date:</p>"+
-                                    "<input name ='date' class='form-control datepicker' type='text'>"+
+                                    "<input name ='date' class='datepicker form-control' type='text'>"+
                                     "<p>Choose an available time:</p>"+
-                                    "<input name = 'time'class='form-control timepicker' type='text'>"+
+                                    "<input name = 'time'class='timepicker form-control' type='text'>"+
                                     "<p>Please input a location:</p>"+
                                     "<input name = 'location'class='form-control' type='text' id='location' value='"+data.location+"'>"+
                                 "</form>"+
