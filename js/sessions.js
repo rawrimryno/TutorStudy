@@ -43,6 +43,39 @@ function changePendingSession(TSID, value){
     }
 }
 
+
+function verifyTutorFields(fields){
+    for(var i in fields){
+        if(fields[i].value==null || fields[i].value==""){
+            $("#pendingTutorSessionsInfo").removeClass("alert-success");
+            $("#pendingTutorSessionsInfo").addClass("alert-danger");
+            $("#alertPendingTutorSessionsInfo").text("Please fill in all required information. You are missing the " +fields[i].name+".");
+            $("#pendingTutorSessionsInfo").show('fast');
+            setTimeout(function(){$("#pendingTutorSessionsInfo").hide('fast');}, 2000);
+            return false;
+        }
+    }
+    return true;
+}
+function verifyStudentFields(fields){
+    for(var i in fields){
+        if(fields[i].value==null || fields[i].value==""){
+            $("#pendingStudentSessionsInfo").removeClass("alert-success");
+            $("#pendingStudentSessionsInfo").addClass("alert-danger");
+            $("#alertPendingStudentSessionsInfo").text("Please fill in all required information. You are missing the " +fields[i].name+".");
+            $("#pendingStudentSessionsInfo").show('fast');
+            setTimeout(function(){$("#pendingStudentSessionsInfo").hide('fast');}, 2000);
+            return false;
+        }
+    }
+    return true;
+}
+
+/* End Generic Functions */
+
+/* Submit Session Functions */
+
+
 function processTutorResponse(TSID){
     var response = $("#"+TSID+"Select").val();
     switch(response){
@@ -111,21 +144,76 @@ function processTutorResponse(TSID){
     }
 }
 
-function verifyTutorFields(fields){
-    for(var i in fields){
-        if(fields[i].value==null || fields[i].value==""){
-            $("#pendingTutorSessionsInfo").removeClass("alert-success");
-            $("#pendingTutorSessionsInfo").addClass("alert-danger");
-            $("#alertPendingTutorSessionsInfo").text("Please fill in all required information. You are missing the " +fields[i].name+".");
-            $("#pendingTutorSessionsInfo").show('fast');
-            setTimeout(function(){$("#pendingTutorSessionsInfo").hide('fast');}, 2000);
-            return false;
-        }
+function processStudentResponse(TSID){
+    var response = $("#"+TSID+"Select").val();
+    switch(response){
+        case '-1':
+            if (confirm("are you sure you want to decline?")){
+                $.ajax({
+                    type: "POST",
+                    async: false,
+                    data: {TSID: TSID},
+                    url: "http://52.38.218.199/TutorStudyServlet/UpdateStudentDeclineSession",
+                    success: function(data){
+                        $("#pendingStudentSessionsInfo").removeClass("alert-success");
+                        $("#pendingStudentSessionsInfo").removeClass("alert-danger");
+                        $("#pendingStudentSessionsInfo").addClass("alert-info");
+                        $("#alertPendingStudentSessionsInfo").text(data);
+                        $("#pendingStudentSessionsInfo").show('fast');
+                        setTimeout(function(){$("#pendingStudentSessionsInfo").hide('fast');}, 2000);
+                        loadStudentSessions();
+                    }
+                });
+            }
+            break;
+        case '0':
+            var fields = $("#"+TSID).serializeArray();
+            if (!verifyTutorFields(fields)){
+                return;
+            }
+            $.ajax({
+                type: "POST",
+                async: false,
+                data: {
+                        TSID: TSID,
+                        date: fields[0].value,
+                        time: fields[1].value,
+                        location: fields[2].value
+                    },
+                url: "http://52.38.218.199/TutorStudyServlet/UpdateStudentConflictSession",
+                success: function(data){
+                    $("#pendingStudentSessionsInfo").removeClass("alert-success");
+                    $("#pendingStudentSessionsInfo").removeClass("alert-danger");
+                    $("#pendingStudentSessionsInfo").addClass("alert-info");
+                    $("#alertPendingStudentSessionsInfo").text(data);
+                    $("#pendingStudentSessionsInfo").show('fast');
+                    setTimeout(function(){$("#pendingStudentSessionsInfo").hide('fast');}, 2000);
+                    loadStudentSessions();
+                }
+            });
+            break;
+        case '1':
+            $.ajax({
+                type: "POST",
+                async: false,
+                data: {TSID: TSID},
+                url: "http://52.38.218.199/TutorStudyServlet/UpdateStudentAcceptSession",
+                success: function(data){
+                    $("#pendingStudentSessionsInfo").removeClass("alert-success");
+                    $("#pendingStudentSessionsInfo").removeClass("alert-danger");
+                    $("#pendingStudentSessionsInfo").addClass("alert-info");
+                    $("#alertPendingStudentSessionsInfo").text(data);
+                    $("#pendingStudentSessionsInfo").show('fast');
+                    setTimeout(function(){$("#pendingStudentSessionsInfo").hide('fast');}, 2000);
+                    loadStudentSessions();
+                }
+            });
+            break;
     }
-    return true;
 }
 
-/* End Generic Functions */
+
+/* End Submit Session Functions */
 
 /* Load Session Functions */
 
