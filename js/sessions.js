@@ -44,11 +44,23 @@ function changePendingSession(TSID, value){
 }
 
 function processResponse(TSID){
-   var fields = $("#"+TSID).serializeArray();
-   if (!verifyFields(fields)){
-       return;
-   }
-   console.log(fields);
+    var response = $("#"+TSID+"Select").val();
+    switch(response){
+        case -1:
+            break;
+        case 0:
+            var fields = $("#"+TSID).serializeArray();
+            if (!verifyFields(fields)){
+                return;
+            }
+            console.log(fields);
+            break;
+        case 1:
+            break;
+        default:
+            alert("Your request could not be processed.");
+            break;
+    }
 }
 
 function verifyFields(fields){
@@ -86,7 +98,7 @@ function loadTutorSessions(){
                         Course: data.course,
                         Date: data.datetime,
                         Location: data.location,
-                        Action: "<select class='form-control' onChange='changePendingSession("+data.TSID+",this.value);'>"+
+                        Action: "<select id='"+data.TSID+"Select' class='form-control' onChange='changePendingSession("+data.TSID+",this.value);'>"+
                                     "<option value='1'>Accept</option>"+
                                     "<option value='0'>Reschedule</option>"+
                                     "<option value='-1'>Decline</option>"+
