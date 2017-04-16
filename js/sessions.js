@@ -285,7 +285,7 @@ function loadTutorSessions(){
                                     "<p>Please input a location:</p>"+
                                     "<input name = 'location'class='form-control' type='text' id='location' value='"+data.location+"'>"+
                                 "</form>"+
-                                "<button class='btn btn-primary' onClick='processResponse("+data.TSID+");'>Submit Response</button>"
+                                "<button class='btn btn-primary' onClick='processTutorResponse("+data.TSID+");'>Submit Response</button>"
                     };
                 });
         var dynatable = $('#pendingTutorSessions').dynatable({
