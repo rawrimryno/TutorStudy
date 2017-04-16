@@ -69,7 +69,7 @@ function loadTutorSessions(){
                                     "<option value='0'>Reschedule</option>"+
                                     "<option value='-1'>Decline</option>"+
                                 "</select>"+
-                                "<form id='"+data.TSID+"' class='form-control login' style='display:none'>"+
+                                "<form id='"+data.TSID+"' class='login' style='display:none'>"+
                                     "<p>Choose an available date:</p>"+
                                     "<input name ='date' class='form-control' type='text' id='datepicker'>"+
                                     "<p>Choose an available time:</p>"+
