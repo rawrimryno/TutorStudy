@@ -47,7 +47,9 @@ function processResponse(TSID){
     var response = $("#"+TSID+"Select").val();
     switch(response){
         case '-1':
-            alert("are you sure you want to decline?");
+            if (confirm("are you sure you want to decline?")){
+                console.log("deleted");
+            }
             break;
         case '0':
             var fields = $("#"+TSID).serializeArray();
