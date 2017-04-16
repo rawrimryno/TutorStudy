@@ -56,9 +56,12 @@ function loadTutorSessions(){
                         Course: data.course,
                         Date: data.datetime,
                         Location: data.location,
-                        Action: "<button class='btn btn-success' type='button'>Accept</button><br>"+
-                                "<button class='btn btn-info' type='button'>Reschedule</button><br>"+
-                                "<button class='btn btn-danger' type='button'>Decline</button><br>"
+                        Action: "<select class='form-control>"+
+                                    "<option>Accept</option>"+
+                                    "<option>Reschedule</option>"+
+                                    "<option>Decline</option>"+
+                                "</select><br>"+
+                                "<button class='btn btn-primary'>Submit Response</button>"
                     };
                 });
         var dynatable = $('#pendingTutorSessions').dynatable({
