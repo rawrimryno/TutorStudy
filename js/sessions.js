@@ -45,21 +45,17 @@ function changePendingSession(TSID, value){
 
 function processResponse(TSID){
     var response = $("#"+TSID+"Select").val();
-    console.log(response);
     switch(response){
-        case -1:
+        case '-1':
             break;
-        case 0:
+        case '0':
             var fields = $("#"+TSID).serializeArray();
             if (!verifyFields(fields)){
                 return;
             }
             console.log(fields);
             break;
-        case 1:
-            break;
-        default:
-            alert("Your request could not be processed.");
+        case '1':
             break;
     }
 }
