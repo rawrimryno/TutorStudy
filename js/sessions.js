@@ -71,9 +71,9 @@ function loadTutorSessions(){
                                 "</select>"+
                                 "<form id='"+data.TSID+"' class='login' style='display:none'>"+
                                     "<p>Choose an available date:</p>"+
-                                    "<input name ='date' class='form-control' type='text' id='datepicker'>"+
+                                    "<input name ='date' class='form-control datepicker' type='text'>"+
                                     "<p>Choose an available time:</p>"+
-                                    "<input name = 'time'class='form-control' type='text' id='timepicker'>"+
+                                    "<input name = 'time'class='form-control timepicker' type='text'>"+
                                     "<p>Please input a location:</p>"+
                                     "<input name = 'location'class='form-control' type='text' id='location' value='"+data.location+"'>"+
                                 "</form>"+
@@ -105,6 +105,15 @@ function loadPastSessions(){
 $(document).ready(function(){
     checkLogin();
     loadUserSession();
+    $(".datepicker").datepicker({
+        dateFormat:'yy-mm-dd'
+    });
+    $(".timepicker").timepicker({
+        minTime: '7:00am',
+        maxTime: '10:00pm',
+        timeFormat: 'H:i:s',
+        step:60
+    });
 });
 
 /* End Document Ready Functions */
