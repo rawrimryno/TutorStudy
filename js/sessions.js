@@ -40,11 +40,18 @@ function loadUserSession(){
 /* Load Session Functions */
 
 function loadStudentSessions(){
-    
+   
 }
 
 function loadTutorSessions(){
-
+    $.ajax({
+        type: "GET",
+        dataType: "JSON",
+        url: "http://52.38.218.199/TutorStudyServlet/GetTutorSessions",
+        success: function(data){
+            console.log(data);
+        }
+    });
 }
 
 function loadUpcomingSessions(){
