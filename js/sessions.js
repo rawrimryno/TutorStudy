@@ -48,7 +48,21 @@ function processResponse(TSID){
     switch(response){
         case '-1':
             if (confirm("are you sure you want to decline?")){
-                console.log("deleted");
+                $.ajax({
+                    type: "POST",
+                    async: false,
+                    data: {TSID: TSID},
+                    url: "http://52.38.218.199/TutorStudyServlet/UpdateTutorDeleteSession",
+                    success: function(data){
+                        $("#pendingTutorSessionsInfo").removeClass("alert-success");
+                        $("#pendingTutorSessionsInfo").removeClass("alert-danger");
+                        $("#pendingTutorSessionsInfo").addClass("alert-info");
+                        $("#alertPendingTutorSessionsInfo").text(data);
+                        $("#pendingTutorSessionsInfo").show('fast');
+                        setTimeout(function(){$("#pendingTutorSessionsInfo").hide('fast');}, 2000);
+                        loadTutorSessions();
+                    }
+                });
             }
             break;
         case '0':
@@ -63,7 +77,6 @@ function processResponse(TSID){
                 type: "POST",
                 async: false,
                 data: {TSID: TSID},
-                dataType: "JSON",
                 url: "http://52.38.218.199/TutorStudyServlet/UpdateTutorAcceptSession",
                 success: function(data){
                     $("#pendingTutorSessionsInfo").removeClass("alert-success");
