@@ -43,7 +43,7 @@ function changePendingSession(TSID, value){
     }
 }
 
-function processResponse(TSID){
+function processTutorResponse(TSID){
     var response = $("#"+TSID+"Select").val();
     switch(response){
         case '-1':
@@ -67,7 +67,7 @@ function processResponse(TSID){
             break;
         case '0':
             var fields = $("#"+TSID).serializeArray();
-            if (!verifyFields(fields)){
+            if (!verifyTutorFields(fields)){
                 return;
             }
             $.ajax({
@@ -111,7 +111,7 @@ function processResponse(TSID){
     }
 }
 
-function verifyFields(fields){
+function verifyTutorFields(fields){
     for(var i in fields){
         if(fields[i].value==null || fields[i].value==""){
             $("#pendingTutorSessionsInfo").removeClass("alert-success");
@@ -130,6 +130,44 @@ function verifyFields(fields){
 /* Load Session Functions */
 
 function loadStudentSessions(){
+    $.ajax({
+        type: "GET",
+        async: false,
+        dataType: "JSON",
+        url: "http://52.38.218.199/TutorStudyServlet/GetPendingStudentSessions"
+    }).done(function (response) {
+        response = $.map(response, function(data){
+                    return{
+                        TSID: data.TSID,
+                        Name: data.name,
+                        Course: data.course,
+                        Date: data.datetime,
+                        Location: data.location,
+                        Action: "<select id='"+data.TSID+"Select' class='form-control' onChange='changePendingSession("+data.TSID+",this.value);'>"+
+                                    "<option value='1'>Accept</option>"+
+                                    "<option value='0'>Reschedule</option>"+
+                                    "<option value='-1'>Decline</option>"+
+                                "</select>"+
+                                "<form id='"+data.TSID+"' class='login' style='display:none'>"+
+                                    "<p>Choose an available date:</p>"+
+                                    "<input name ='date' class='datepicker form-control' type='text'>"+
+                                    "<p>Choose an available time:</p>"+
+                                    "<input name = 'time'class='timepicker form-control' type='text'>"+
+                                    "<p>Please input a location:</p>"+
+                                    "<input name = 'location'class='form-control' type='text' id='location' value='"+data.location+"'>"+
+                                "</form>"+
+                                "<button class='btn btn-primary' onClick='processStudentResponse("+data.TSID+");'>Submit Response</button>"
+                    };
+                });
+        var dynatable = $('#pendingStudentSessions').dynatable({
+            dataset: {
+                records: response
+            }
+        }).data('dynatable');
+
+        dynatable.settings.dataset.originalRecords = response;
+        dynatable.process();
+    });
 }
 
 function loadTutorSessions(){
