@@ -300,7 +300,30 @@ function loadTutorSessions(){
 }
 
 function loadUpcomingSessions(){
+    $.ajax({
+        type: "GET",
+        async: false,
+        dataType: "JSON",
+        url: "http://52.38.218.199/TutorStudyServlet/GetUpcomingSessions"
+    }).done(function (response) {
+        response = $.map(response, function(data){
+                    return{
+                        TSID: data.TSID,
+                        Name: data.name,
+                        Course: data.course,
+                        Date: data.datetime,
+                        Location: data.location
+                    };
+                });
+        var dynatable = $('#upcomingSessions').dynatable({
+            dataset: {
+                records: response
+            }
+        }).data('dynatable');
 
+        dynatable.settings.dataset.originalRecords = response;
+        dynatable.process();
+    });
 }
 
 function loadPastSessions(){

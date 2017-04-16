@@ -22,7 +22,6 @@ function getMajors(){
                                 text: data.major         
                             }
                         }),
-                dropdownParent:$("#registerModal"),
                 createTag: function(){
                     return null;
                 }
@@ -35,7 +34,6 @@ function getMajors(){
                                 text: data.major         
                             }
                         }),
-                dropdownParent:$("#registerModal"),
                 createTag: function(){
                     return null;
                 }
