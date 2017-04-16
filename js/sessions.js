@@ -58,7 +58,7 @@ function loadTutorSessions(){
                         View: "<button class='btn btn-primary' type='button'>Action</button>"
                     };
                 });
-        var dynatable = $('#result').dynatable({
+        var dynatable = $('#pendingTutorSessions').dynatable({
             dataset: {
                 records: response
             }
