@@ -72,6 +72,8 @@ function loadTutors(CID){
         response = $.map(response, function(data){
                             if (data.AvgRating  == 0){
                                 data.AvgRating = '-';
+                            }else{
+                                data.AvgRating = Number((data.AvgRating).toFixed(2));
                             }
                             return{
                                 TID: data.TID,
@@ -153,6 +155,8 @@ function loadTutor(UID){
             var result = data;
             if (result.AvgRating  == 0){
                 result.AvgRating = '-';
+            }else{
+                result.AvgRating = Number((result.AvgRating).toFixed(2));
             }
             $("#classSelect").val(result.classes).trigger('change');
             $("#studentInfoForm").hide();

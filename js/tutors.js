@@ -22,6 +22,8 @@ function loadTutors(){
         response = $.map(response, function(data){
                     if (data.AvgRating  == 0){
                         data.AvgRating = '-';
+                    }else{
+                        data.AvgRating = Number((data.AvgRating).toFixed(2));
                     }
                     return{
                         TID: data.TID,
@@ -117,6 +119,8 @@ function loadTutor(UID){
         success: function(data){
             if (data.AvgRating  == 0){
                 data.AvgRating = '-';
+            }else{
+                data.AvgRating = Number((data.AvgRating).toFixed(2));
             }
             var result = data;
             $("#classSelect").val(result.classes).trigger('change');
