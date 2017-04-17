@@ -174,7 +174,7 @@
                                 <a class="close" onClick="$('#loginInfo').hide('slow');" aria-label="close">&times;</a>
                                 <div id="alertLoginInfo"></div>
                             </div>
-                            <form id="loginForm" class="login" style="display:none">
+                            <form id="loginForm" class="login" style="display:none" onSubmit="Login()">
                                 <a class="close" onClick="$('#loginForm').hide('slow');" aria-label="close">&times;</a>
                                 <div class="form-group">
                                     <label for="email">Email Address:</label>
@@ -182,7 +182,7 @@
                                     <label for="password">Password:</label>
                                     <input type="password" class="form-control" name="password" placeholder="Password" value="">
                                     <br>
-                                    <button type="button" class="btn btn-primary" onClick="Login()">Login</button> 
+                                    <button type="submit" class="btn btn-primary" onClick="Login()">Login</button> 
                                 </div>
                             </form>   
                             <div class="alert" id="registerInfo" style="display:none">
