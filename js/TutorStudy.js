@@ -70,8 +70,8 @@ function registerTutor(){
     var fields = $("#tutorRegistrationForm").serializeArray();
     if (!verifyFields(fields))
         return;
-    if(!Number.isInteger(parseInt(fields[6].value)) && 
-        parseInt(fields[6].value)<=150 &&
+    if(!Number.isInteger(parseInt(fields[6].value)) ||
+        parseInt(fields[6].value)<=150 ||
         parseInt(fields[6].value)>0){
         $("#registerInfo").removeClass("alert-success");
         $("#registerInfo").addClass("alert-danger");
