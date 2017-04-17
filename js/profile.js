@@ -114,10 +114,10 @@ function updateTutor(){
         fields[6].value > 150 ||
         fields[6].value < 0){ 
         $("#userInfo").removeClass("alert-success");
-        $("#userInfo").removeClass("alert-danger");
-        $("#userInfo").addClass("alert-info");
+        $("#userInfo").addClass("alert-danger");
         $("#alertUserInfo").text("Please Enter a fee/hour that is a whole number greater than 0 but less than 150.");
         $("#userInfo").show('fast');
+        return;
     }
     fields = $("#tutorInfoForm").serialize();
     $.ajax({
