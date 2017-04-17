@@ -75,7 +75,7 @@ function registerTutor(){
         $("#registerInfo").addClass("alert-danger");
         $("#alertRegisterInfo").text("Please have your fee/hour a whole number less than $150.");
         $("#registerInfo").show('fast');
-        return false;
+        return;
     }
     fields = $("#tutorRegistrationForm").serialize();
     $.ajax({
