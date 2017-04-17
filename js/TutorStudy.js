@@ -45,7 +45,7 @@ function getMajors(){
 
 /* General Load Functions */
 function isInteger(value){
-    return Math.floor(value) == value && $.isNumeric(value);
+    return Math.floor(value) == value && $.isNumeric(value) && !value.contains(".");
 }
 /* End General Load Functions */
 
