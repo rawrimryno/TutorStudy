@@ -73,7 +73,6 @@ function registerTutor(){
     var fields = $("#tutorRegistrationForm").serializeArray();
     if (!verifyFields(fields))
         return;
-    console.log(fields[6].value);
     if(!isInteger(fields[6].value) ||
         fields[6].value>150 ||
         fields[6].value<0){
