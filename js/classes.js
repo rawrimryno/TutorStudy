@@ -148,6 +148,9 @@ function loadTutor(UID){
         url: "http://52.38.218.199/TutorStudyServlet/GetTutorInfo",
         success: function(data){
             var result = data;
+            if (result.AvgRating  == 0){
+                result.AvgRating = '-';
+            }
             $("#classSelect").val(result.classes).trigger('change');
             $("#studentInfoForm").hide();
             $("#tutorInfoForm input[name='name']").val(result.name);

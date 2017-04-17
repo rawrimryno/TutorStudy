@@ -20,6 +20,9 @@ function loadTutors(){
         data: {fields:fields}
     }).done(function (response) {
         response = $.map(response, function(data){
+                    if (data.AvgRating  == 0){
+                        data.AvgRating = '-';
+                    }
                     return{
                         TID: data.TID,
                         Name: data.Name,
