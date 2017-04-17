@@ -215,7 +215,7 @@ function processStudentResponse(TSID){
 function submitReview(TSID){
     var fields = $("#"+TSID).serializeArray();
     console.log(fields);
-    /*$.ajax({
+    $.ajax({
         type: "POST",
         async: false,
         data: {
@@ -225,15 +225,15 @@ function submitReview(TSID){
             },
         url: "http://52.38.218.199/TutorStudyServlet/UpdateStudentConflictSession",
         success: function(data){
-            $("#pendingStudentSessionsInfo").removeClass("alert-success");
-            $("#pendingStudentSessionsInfo").removeClass("alert-danger");
-            $("#pendingStudentSessionsInfo").addClass("alert-info");
-            $("#alertPendingStudentSessionsInfo").text(data);
-            $("#pendingStudentSessionsInfo").show('fast');
-            setTimeout(function(){$("#pendingStudentSessionsInfo").hide('fast');}, 2000);
-            loadStudentSessions();
+            $("#pastStudentSessionsInfo").removeClass("alert-success");
+            $("#pastStudentSessionsInfo").removeClass("alert-danger");
+            $("#pastStudentSessionsInfo").addClass("alert-info");
+            $("#alertPastStudentSessionsInfo").text(data);
+            $("#pastStudentSessionsInfo").show('fast');
+            setTimeout(function(){$("#pastStudentSessionsInfo").hide('fast');}, 2000);
+            loadPastSessions();
         }
-    });*/
+    });
 }
 
 /* End Submit Session Functions */

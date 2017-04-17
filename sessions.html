@@ -124,7 +124,7 @@
                 <div class="row">
                     <div class="col-lg-12" id="sessions">
                         <div class="alert" id="pendingStudentSessionsInfo" style="display:none">
-                            <a href="#" class="close" onClick="$('#pendingStudentSessionsInfo').hide('slow');" aria-label="close">&times;</a>
+                            <a class="close" onClick="$('#pendingStudentSessionsInfo').hide('slow');" aria-label="close">&times;</a>
                             <div id="alertPendingStudentSessionsInfo"></div>
                         </div>
                         <label for="pendingStudentSessions">Pending Sessions</label>
@@ -141,7 +141,7 @@
                             </thead>
                         </table> 
                         <div class="alert" id="pendingTutorSessionsInfo" style="display:none">
-                            <a href="#" class="close" onClick="$('#pendingTutorSessionsInfo').hide('slow');" aria-label="close">&times;</a>
+                            <a class="close" onClick="$('#pendingTutorSessionsInfo').hide('slow');" aria-label="close">&times;</a>
                             <div id="alertPendingTutorSessionsInfo"></div>
                         </div>
                         <div clas="container" id="tutorSessions" style='display:none'>
@@ -171,6 +171,10 @@
                                 </tr>
                             </thead>
                         </table>  
+                        <div class="alert" id="pastStudentSessionsInfo" style="display:none">
+                            <a class="close" onClick="$('#pastStudentSessionsInfo').hide('slow');" aria-label="close">&times;</a>
+                            <div id="alertPastStudentSessionsInfo"></div>
+                        </div>
                         <label for="pastSessions">Past Sessions</label>
                         <table class="table table-bordered table-hover table-responsive" id="pastSessions">
                             <thead>
