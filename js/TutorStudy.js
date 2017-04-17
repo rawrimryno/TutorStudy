@@ -70,7 +70,9 @@ function registerTutor(){
     var fields = $("#tutorRegistrationForm").serializeArray();
     if (!verifyFields(fields))
         return;
-    if(!Number.isInteger(fields[6].value)){
+    if(!Number.isInteger(parseInt(fields[6].value)) && 
+        parseInt(fields[6].value)<=150 &&
+        parseInt(fields[6].value)>0){
         $("#registerInfo").removeClass("alert-success");
         $("#registerInfo").addClass("alert-danger");
         $("#alertRegisterInfo").text("Please have your fee/hour a whole number greater than 0 but less than $150.");
