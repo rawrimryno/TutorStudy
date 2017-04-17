@@ -130,24 +130,24 @@
                             <div class="form-group">
                                 <a href="#" class="close" onClick="$('#tutorInfoForm').hide('slow');" aria-label="close">&times;</a>
                                 <label for="name">Name:</label>
-                                <input type="text" class="form-control" name="name" placeholder="Name" value="" disabled>
+                                <input type="text" class="form-control" name="name" placeholder="Name" value="" readonly>
                                 <label for="email">Email Address:(LSU valid email)</label>
-                                <input type="email" class="form-control" name="email" placeholder="Email" value="" disabled><br>
+                                <input type="email" class="form-control" name="email" placeholder="Email" value="" readonly><br>
                                 <label for="major">Major:</label>
-                                <select id="tutorMajorSelect" name="major" class="form-control responsive"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" disabled style="width:100%">
+                                <select id="tutorMajorSelect" name="major" class="form-control responsive"  data-tags="true" data-placeholder="Select an option" data-allow-clear="true" readonly style="width:100%">
                                     <option></option>
                                 </select>
                                 <br><br>
                                 <label for="description">Description:</label>
-                                <textarea rows="" cols="" class="form-control" name="description" placeholder="Write about yourself..." value="" disabled></textarea>
+                                <textarea rows="" cols="" class="form-control" name="description" placeholder="Write about yourself..." value="" readonly></textarea>
                                 <label for="rate">fee/hour:</label>
-                                <input type="number" class="form-control" name="rate" placeholder="" value="" min="1" max="150" disabled>
+                                <input type="number" class="form-control" name="rate" placeholder="" value="" min="1" max="150" readonly>
                                 <br>
                                 <label for="classes">Courses Available for tutoring:</label>
-                                <select id="classSelect" name="classes" class="form-control" data-tags="true"  data-allow-clear="true" data-placeholder="Select an option" multiple="multiple" disabled style="width:100%">
+                                <select id="classSelect" name="classes" class="form-control" data-tags="true"  data-allow-clear="true" data-placeholder="Select an option" multiple="multiple" readonly style="width:100%">
                                 </select><br>
                                 <label for="avgRating">Average Rating</label>
-                                <input type="text" class="form-control" name="avgRating" placeholder="" value="" disabled><br>
+                                <input type="text" class="form-control" name="avgRating" placeholder="" value="" readonly><br>
                                 <button type="button" class="btn btn-default" id="scheduleSession">Schedule a Session</button>
                             </div>
                         </form>
