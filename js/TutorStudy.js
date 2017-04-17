@@ -73,15 +73,6 @@ function registerTutor(){
     var fields = $("#tutorRegistrationForm").serializeArray();
     if (!verifyFields(fields))
         return;
-    if(!isInteger(fields[6].value) ||
-        fields[6].value>150 ||
-        fields[6].value<0){
-        $("#registerInfo").removeClass("alert-success");
-        $("#registerInfo").addClass("alert-danger");
-        $("#alertRegisterInfo").text("Please have your fee/hour a whole number greater than 0 but less than $150.");
-        $("#registerInfo").show('fast');
-        return;
-    }
     fields = $("#tutorRegistrationForm").serialize();
     $.ajax({
         type: "POST",
