@@ -170,6 +170,7 @@ function Login(){
                     setTimeout(function(){
                         $("#loginForm").hide('slow');
                         $("#loginInfo").hide('slow');
+                        window.location.replace('http://52.38.218.199/TutorStudy');
                     }, 2000);
                 }
             }
