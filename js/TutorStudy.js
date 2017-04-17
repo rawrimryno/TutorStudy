@@ -44,6 +44,9 @@ function getMajors(){
 /* End General Get Functions */
 
 /* General Load Functions */
+function isInteger(x) {
+    return (typeof x === 'number') && (x % 1 === 0);
+}
 /* End General Load Functions */
 
 /*Form Functions*/
@@ -71,7 +74,7 @@ function registerTutor(){
     if (!verifyFields(fields))
         return;
     console.log(fields[6].value);
-    if(!Number.isInteger(fields[6].value) ||
+    if(!isInteger(fields[6].value) ||
         fields[6].value>150 ||
         fields[6].value<0){
         $("#registerInfo").removeClass("alert-success");
