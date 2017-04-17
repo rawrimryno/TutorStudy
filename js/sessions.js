@@ -374,8 +374,8 @@ function loadPastSessions(){
                                         "<option value='4'>Good</option>"+
                                         "<option value='5'>Excellent</option>"+
                                     "</select>"+
-                                    "<label for='description'>Review:</label><br>"+
-                                    "<textarea rows='' cols='' class='form-control' name='description' placeholder='Write about your experience...' value=''></textarea><br>"+
+                                    "<label for='review'>Review:</label><br>"+
+                                    "<textarea rows='' cols='' class='form-control' name='review' placeholder='Write about your experience...' value=''></textarea><br>"+
                                     "<button type='button' class='btn btn-primary' onClick='submitReview("+data.TSID+");'>Submit Review</button>"+
                                 "</form>"
                     };
