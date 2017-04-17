@@ -342,6 +342,7 @@ function loadPastSessions(){
                         Location: data.location,
                         Review: "<button class='btn btn-default' onClick= '$(\"#"+data.TSID+"\").show(\"slow\");'>Add Review</button><br><br>"+
                                 "<form id='"+data.TSID+"' class='login' style='display:none'>"+
+                                    "<a class='close' onClick= '$(\"#"+data.TSID+"\").hide(\"slow\");' aria-label='close'>&times;</a>"+
                                     "<label for='rating'>Rating:</label><br>"+
                                     "<select name='rating'class='form-control'>"+
                                         "<option value='1'>Very Poor</option>"+
