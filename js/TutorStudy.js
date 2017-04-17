@@ -44,9 +44,11 @@ function getMajors(){
 /* End General Get Functions */
 
 /* General Load Functions */
-function isInteger(x) {
-    return (typeof x === 'number') && (x % 1 === 0);
-}
+Number.isInteger = Number.isInteger || function(value) {
+    return typeof value === "number" && 
+           isFinite(value) && 
+           Math.floor(value) === value;
+};
 /* End General Load Functions */
 
 /*Form Functions*/
@@ -73,6 +75,15 @@ function registerTutor(){
     var fields = $("#tutorRegistrationForm").serializeArray();
     if (!verifyFields(fields))
         return;
+    console.log(Number.isInteger(fields[6].value));
+    if (!Number.isInteger(fields[6].value)||
+        fields[6].value > 150 ||
+        fields[6].value < 0){
+        $("#registerInfo").removeClass("alert-success");
+        $("#registerInfo").addClass("alert-danger");
+        $("#alertRegisterInfo").text("Please Enter a fee/hour that is a whole number greater than 0 but less than 150.");
+        $("#registerInfo").show('fast');
+    }
     fields = $("#tutorRegistrationForm").serialize();
     $.ajax({
         type: "POST",
