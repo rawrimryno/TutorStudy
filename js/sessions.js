@@ -343,9 +343,11 @@ function loadPastSessions(){
                         Review: "<button class='btn btn-primary' onClick= '$(\"#"+data.TSID+"\").show(\"slow\");'>Add Review</button>"+
                                 "<form id='"+data.TSID+"' class='login' style='display:none'>"+
                                     "<select id='"+data.TSID+"Select' class='form-control'>"+
-                                        "<option value='1'>Accept</option>"+
-                                        "<option value='0'>Reschedule</option>"+
-                                        "<option value='-1'>Decline</option>"+
+                                        "<option value='1'>Very Poor</option>"+
+                                        "<option value='2'>Poor</option>"+
+                                        "<option value='3' selected>Average</option>"+
+                                        "<option value='4'>Good</option>"+
+                                        "<option value='5'>Excellent</option>"+
                                     "</select>"+
                                     "<button class='btn btn-primary' onClick='submitReview("+data.TSID+");'>Submit Review</button>"+
                                 "</form>"
