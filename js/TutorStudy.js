@@ -74,7 +74,7 @@ function registerTutor(){
         console.log(fields[6].value);
         $("#registerInfo").removeClass("alert-success");
         $("#registerInfo").addClass("alert-danger");
-        $("#alertRegisterInfo").text("Please have your fee/hour a whole number less than $150.");
+        $("#alertRegisterInfo").text("Please have your fee/hour a whole number greater than 0 but less than $150.");
         $("#registerInfo").show('fast');
         return;
     }
