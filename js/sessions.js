@@ -340,15 +340,18 @@ function loadPastSessions(){
                         Course: data.course,
                         Date: data.datetime,
                         Location: data.location,
-                        Review: "<button class='btn btn-primary' onClick= '$(\"#"+data.TSID+"\").show(\"slow\");'>Add Review</button>"+
+                        Review: "<button class='btn btn-default' onClick= '$(\"#"+data.TSID+"\").show(\"slow\");'>Add Review</button><br>"+
                                 "<form id='"+data.TSID+"' class='login' style='display:none'>"+
-                                    "<select id='"+data.TSID+"Select' class='form-control'>"+
+                                    "<label for='rating'>Rating:</label><br>"+
+                                    "<select name='rating'class='form-control'>"+
                                         "<option value='1'>Very Poor</option>"+
                                         "<option value='2'>Poor</option>"+
                                         "<option value='3' selected>Average</option>"+
                                         "<option value='4'>Good</option>"+
                                         "<option value='5'>Excellent</option>"+
                                     "</select>"+
+                                    "<label for='description'>Review:</label><br>"+
+                                    "<textarea rows='' cols='' class='form-control' name='description' placeholder='Write about your experience...' value=''></textarea>"+
                                     "<button class='btn btn-primary' onClick='submitReview("+data.TSID+");'>Submit Review</button>"+
                                 "</form>"
                     };
