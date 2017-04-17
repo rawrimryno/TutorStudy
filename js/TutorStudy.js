@@ -194,8 +194,10 @@ function loadUser(){
             $("#username").text(result);
             if (result === "Guest"){
                 $(".userOptions").hide();
+                $(".guestOptions").show();
             }else{
                 $(".userOptions").show();
+                $(".guestOptions").hide();
             }
         }
     });
