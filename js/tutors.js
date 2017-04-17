@@ -115,6 +115,9 @@ function loadTutor(UID){
         dataType: "JSON",
         url: "http://52.38.218.199/TutorStudyServlet/GetTutorInfo",
         success: function(data){
+            if (data.AvgRating  == 0){
+                data.AvgRating = '-';
+            }
             var result = data;
             $("#classSelect").val(result.classes).trigger('change');
             $("#studentInfoForm").hide();
