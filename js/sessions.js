@@ -223,7 +223,7 @@ function submitReview(TSID){
                 rating: fields[0].value,
                 review: fields[1].value
             },
-        url: "http://52.38.218.199/TutorStudyServlet/UpdateStudentConflictSession",
+        url: "http://52.38.218.199/TutorStudyServlet/SubmitReview",
         success: function(data){
             $("#pastStudentSessionsInfo").removeClass("alert-success");
             $("#pastStudentSessionsInfo").removeClass("alert-danger");
