@@ -110,6 +110,15 @@ function updateTutor(){
     if (!checkPassword(fields)){
         return;
     }
+    if (!isInteger(fields[6].value)||
+        fields[6].value > 150 ||
+        fields[6].value < 0){ 
+        $("#userInfo").removeClass("alert-success");
+        $("#userInfo").removeClass("alert-danger");
+        $("#userInfo").addClass("alert-info");
+        $("#alertUserInfo").text("Please Enter a fee/hour that is a whole number greater than 0 but less than 150.");
+        $("#userInfo").show('fast');
+    }
     fields = $("#tutorInfoForm").serialize();
     $.ajax({
         type: "POST",
