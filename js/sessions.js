@@ -352,7 +352,7 @@ function loadPastSessions(){
                                     "</select>"+
                                     "<label for='description'>Review:</label><br>"+
                                     "<textarea rows='' cols='' class='form-control' name='description' placeholder='Write about your experience...' value=''></textarea><br>"+
-                                    "<button class='btn btn-primary' onClick='submitReview("+data.TSID+");'>Submit Review</button>"+
+                                    "<button type='button' class='btn btn-primary' onClick='submitReview("+data.TSID+");'>Submit Review</button>"+
                                 "</form>"
                     };
                 });
