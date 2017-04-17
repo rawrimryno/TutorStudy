@@ -44,11 +44,9 @@ function getMajors(){
 /* End General Get Functions */
 
 /* General Load Functions */
-Number.isInteger = Number.isInteger || function(value) {
-    return typeof value === "number" && 
-           isFinite(value) && 
-           Math.floor(value) === value;
-};
+function isInteger(value){
+    return Math.floor(value) == value && $.isNumeric(value);
+}
 /* End General Load Functions */
 
 /*Form Functions*/
@@ -75,8 +73,8 @@ function registerTutor(){
     var fields = $("#tutorRegistrationForm").serializeArray();
     if (!verifyFields(fields))
         return;
-    console.log(Number.isInteger(fields[6].value));
-    if (!Number.isInteger(fields[6].value)||
+    console.log(isInteger(fields[6].value));
+    if (!isInteger(fields[6].value)||
         fields[6].value > 150 ||
         fields[6].value < 0){
         $("#registerInfo").removeClass("alert-success");
