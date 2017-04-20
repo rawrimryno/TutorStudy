@@ -170,7 +170,7 @@ function loadTutor(UID){
                 window.location.replace("./contact.html?Tutor="+UID);
             });
             $("#TID").val(result.TID);
-            $("#reviewsContainer").hide();
+            $("#reviewsContainer").hide('slow');
         }
     });
     $("#tutorInfoForm").show('slow');
