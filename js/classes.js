@@ -174,6 +174,26 @@ function loadTutor(UID){
     });
     $("#tutorInfoForm").show('slow');
 }
+
+function loadReviews(){
+    $.ajax({
+        type:"GET",
+        data: {TID: $("#TID").val()},
+        dataType: "JSON",
+        url: "http://52.38.218.199/TutorStudyServlet/GetReviews"
+    }).done(function (response) {
+        var dynatable = $('#reviews').dynatable({
+            dataset: {
+                records: response
+            }
+        }).data('dynatable');
+
+        dynatable.settings.dataset.originalRecords = response;
+        dynatable.process();
+
+        $("#reviews").show();
+    });
+}
 /* End Generic Functions */
 
 /* Update User Functions */

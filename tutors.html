@@ -131,7 +131,7 @@
                         
                         <form id="tutorInfoForm" class="login" style="display:none">
                             <div class="form-group">
-                                <a href="#" class="close" onClick="$('#tutorInfoForm').hide('slow');" aria-label="close">&times;</a>
+                                <a class="close" onClick="$('#tutorInfoForm').hide('slow');" aria-label="close">&times;</a>
                                 <input id="TID" type="hidden">
                                 <label for="name">Name:</label>
                                 <input type="text" class="form-control" name="name" placeholder="Name" value="" readonly>
@@ -156,6 +156,7 @@
                             </div>
                         </form>
                         <table class="table table-bordered table-hover" id="reviews" style="display:none">
+                            <a class="close" onClick="$('#reviews').hide('slow');" aria-label="close">&times;</a>
                             <thead>
                                 <tr>
                                     <td data-dynatable-column="Course" >Course</td>
