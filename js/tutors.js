@@ -135,6 +135,21 @@ function loadTutor(UID){
                 window.location.replace("./contact.html?Tutor="+UID);
             });
             $("#TID").val(result.TID);
+            $.ajax({
+                type:"GET",
+                data: {TID: $("#TID").val()},
+                dataType: "JSON",
+                url: "http://52.38.218.199/TutorStudyServlet/GetReviews"
+            }).done(function (response) {
+                var dynatable = $('#reviews').dynatable({
+                    dataset: {
+                        records: response
+                    }
+                }).data('dynatable');
+
+                dynatable.settings.dataset.originalRecords = response;
+                dynatable.process();
+            });
         }
     });
     $("#tutorInfoForm").show('slow');
