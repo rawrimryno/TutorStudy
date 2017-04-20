@@ -141,7 +141,34 @@ function loadTutor(UID){
 }
 
 function loadReview(){
-    
+    $.ajax({
+        type:"GET",
+        data: {TID: $("#TID").val()},
+        dataType: "JSON",
+        url: "http://52.38.218.199/TutorStudyServlet/GetReviews"
+    }).done(function (response) {
+        /*response = $.map(response, function(data){
+                    return{
+                        TID: data.TID,
+                        Name: data.Name,
+                        Major: data.Major,
+                        Rate: "$"+data.Rate,
+                        AvgRating: data.AvgRating+"/5",
+                        View: "<button class='btn btn-primary' type='button' onClick='loadTutor("+
+                                data.UID+");'>View Tutor</button>"
+                    };
+                });*/
+        var dynatable = $('#reviews').dynatable({
+            dataset: {
+                records: response
+            }
+        }).data('dynatable');
+
+        dynatable.settings.dataset.originalRecords = response;
+        dynatable.process();
+
+        $("#reviews").show();
+    });
 }
 /* End Update User Functions */
 
