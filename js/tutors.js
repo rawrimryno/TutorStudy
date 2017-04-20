@@ -157,7 +157,7 @@ function loadReviews(){
         dynatable.settings.dataset.originalRecords = response;
         dynatable.process();
 
-        $("#reviewsContainer").show();
+        $("#reviewsContainer").show('slow');
     });
 }
 /* End Update User Functions */
