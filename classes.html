@@ -152,16 +152,18 @@
                                 <button type="button" class="btn btn-default" id="scheduleSession">Schedule a Session</button>
                             </div>
                         </form>
-                        <table class="table table-bordered table-hover" id="reviews" style="display:none">
-                            <a class="close" onClick="$('#reviews').hide('slow');" aria-label="close">&times;</a>
-                            <thead>
-                                <tr>
-                                    <td data-dynatable-column="Course" >Course</td>
-                                    <td data-dynatable-column="Rating">Rating</td>
-                                    <td data-dynatable-column="Review">Review</td>
-                                </tr>
-                            </thead>
-                        </table> 
+                         <div class="container-fluid" id="reviewsContainer"  style="display:none">
+                            <a class="close" onClick="$('#reviewsContainer').hide('slow');" aria-label="close">&times;</a>
+                            <table class="table table-bordered table-hover" id="reviews">
+                                <thead>
+                                    <tr>
+                                        <td data-dynatable-column="Course" >Course</td>
+                                        <td data-dynatable-column="Rating">Rating</td>
+                                        <td data-dynatable-column="Review">Review</td>
+                                    </tr>
+                                </thead>
+                            </table>  
+                        </div>
                         <div class="container-fluid" id="tutorContainer" style="display:none">
                                 <a href="#" class="close" onClick="$('#tutorContainer').hide('slow');" aria-label="close">&times;</a>
                             <table class="table table-bordered table-hover" id="tutors">
