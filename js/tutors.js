@@ -134,9 +134,14 @@ function loadTutor(UID){
             $("#scheduleSession").click(function(){
                 window.location.replace("./contact.html?Tutor="+UID);
             });
+            $("#TID").val(result.TID);
         }
     });
     $("#tutorInfoForm").show('slow');
+}
+
+function loadReview(){
+
 }
 /* End Update User Functions */
 

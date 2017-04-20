@@ -132,6 +132,7 @@
                         <form id="tutorInfoForm" class="login" style="display:none">
                             <div class="form-group">
                                 <a href="#" class="close" onClick="$('#tutorInfoForm').hide('slow');" aria-label="close">&times;</a>
+                                <input id="TID" type="hidden">
                                 <label for="name">Name:</label>
                                 <input type="text" class="form-control" name="name" placeholder="Name" value="" readonly>
                                 <label for="email">Email Address:(LSU valid email)</label>
@@ -154,6 +155,16 @@
                                 <button type="button" class="btn btn-default" id="scheduleSession">Schedule a Session</button>
                             </div>
                         </form>
+                        <table class="table table-bordered table-hover" id="reviews" style="display:none">
+                            <thead>
+                                <tr>
+                                    <td data-dynatable-column="TSID" style="display:none">TSID</td>
+                                    <td data-dynatable-column="Name" >Name</td>
+                                    <td data-dynatable-column="Rating">Rating</td>
+                                    <td data-dynatable-column="Review">Review</td>
+                                </tr>
+                            </thead>
+                        </table>  
                         <form id="classSearch">
                             <div class="form-group">
                                 <label form="majorSelect">Select a major to view tutors or search a tutor by name</label><br>
